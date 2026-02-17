@@ -11,11 +11,19 @@ Thanks for contributing.
 mvn -f nettygame/pom.xml clean verify
 ```
 
+Optional shortcuts:
+
+```bash
+make verify
+make integration-test
+```
+
 ## Pull Request Checklist
 
 - Keep changes focused and minimal
 - Add or update unit tests
 - Ensure `mvn -f nettygame/pom.xml verify` passes
+- If infrastructure or persistence logic changed, run `./scripts/run-integration-tests.sh`
 - Update documentation when behavior changes
 
 ## Commit Message Style

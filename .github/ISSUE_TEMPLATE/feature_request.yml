@@ -1,0 +1,41 @@
+name: Feature Request
+description: Propose a new feature or enhancement
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share the problem first, then propose your preferred solution.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What user problem are you trying to solve?
+      placeholder: Describe the pain point.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: What should change?
+      placeholder: Describe your preferred API, behavior, or workflow.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternatives or trade-offs?
+      placeholder: Optional but helpful.
+    validations:
+      required: false
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Links, examples, benchmarks, screenshots, etc.
+    validations:
+      required: false

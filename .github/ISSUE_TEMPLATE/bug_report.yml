@@ -1,0 +1,53 @@
+name: Bug Report
+description: Report a reproducible bug
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue. Please provide enough detail to reproduce it.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect to happen?
+      placeholder: Describe the bug and expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction Steps
+      description: List exact steps to reproduce the issue.
+      placeholder: |
+        1. Run ...
+        2. Send ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version / Commit
+      description: Which release tag or commit are you using?
+      placeholder: e.g. main@abcdef1
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, JDK, Maven, Docker versions
+      placeholder: e.g. macOS 14, JDK 8u412, Maven 3.9.9, Docker 27
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Stack Traces
+      description: Paste relevant logs or stack traces.
+      render: shell
+    validations:
+      required: false

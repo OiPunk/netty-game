@@ -21,6 +21,7 @@ A lightweight multiplayer game backend built on Netty and Protobuf.
 - JDK 8+
 - Maven 3.8+
 - Docker + Docker Compose v2 (for containerized deployment and integration tests)
+- GNU Make (optional, for shortcut commands)
 
 Optional (for full runtime features):
 
@@ -33,6 +34,13 @@ Optional (for full runtime features):
 ```bash
 mvn -f nettygame/pom.xml clean verify
 java -jar nettygame/target/herostory-1.1.0.jar
+```
+
+Or use Make shortcuts:
+
+```bash
+make verify
+make docker-up
 ```
 
 Default server port: `12345`
@@ -92,6 +100,13 @@ This command will:
 - start `mysql-it` and `redis-it` with Docker profile `integration`
 - run Maven integration tests (`ExternalDependenciesIT`) via profile `integration-tests`
 - clean up containers automatically
+
+## Community and Support
+
+- Contribution guide: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Code of conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- Security policy: [SECURITY.md](SECURITY.md)
+- Support channels: [SUPPORT.md](SUPPORT.md)
 
 ## License
 
