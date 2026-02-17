@@ -8,7 +8,7 @@ Thanks for contributing.
 2. Run:
 
 ```bash
-mvn -f nettygame/pom.xml clean verify
+mvn -f valorlegend/pom.xml clean verify
 ```
 
 Optional shortcuts:
@@ -22,7 +22,7 @@ make integration-test
 
 - Keep changes focused and minimal
 - Add or update unit tests
-- Ensure `mvn -f nettygame/pom.xml verify` passes
+- Ensure `mvn -f valorlegend/pom.xml verify` passes
 - If infrastructure or persistence logic changed, run `./scripts/run-integration-tests.sh`
 - Update documentation when behavior changes
 

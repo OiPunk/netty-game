@@ -46,7 +46,7 @@ public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
             VictorMsg newMsg = new VictorMsg();
             newMsg.winnerId = attkUserId;
             newMsg.loserId = targetUserId;
-            MqProducer.sendMsg("herostory_victor", newMsg);
+            MqProducer.sendMsg("valorlegend_victor", newMsg);
         }
     }
 

@@ -1,6 +1,6 @@
 # Support
 
-Thanks for using Netty Game.
+Thanks for using ValorLegend.
 
 ## Get Help
 

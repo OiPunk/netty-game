@@ -11,13 +11,13 @@ help:
 	@echo "  docker-down       Stop and remove compose resources"
 
 build:
-	mvn -B -f nettygame/pom.xml clean package
+	mvn -B -f valorlegend/pom.xml clean package
 
 test:
-	mvn -B -f nettygame/pom.xml test
+	mvn -B -f valorlegend/pom.xml test
 
 verify:
-	mvn -B -f nettygame/pom.xml clean verify
+	mvn -B -f valorlegend/pom.xml clean verify
 
 integration-test:
 	./scripts/run-integration-tests.sh

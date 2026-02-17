@@ -25,7 +25,7 @@ public final class MqProducer {
         }
 
         try {
-            DefaultMQProducer newProducer = new DefaultMQProducer("herostory");
+            DefaultMQProducer newProducer = new DefaultMQProducer("valorlegend");
             newProducer.setNamesrvAddr(RuntimeConfig.rocketMqNameServer());
             newProducer.start();
             newProducer.setRetryTimesWhenSendAsyncFailed(3);

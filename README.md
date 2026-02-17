@@ -1,4 +1,4 @@
-# Netty Game
+# ValorLegend
 
 A lightweight multiplayer game backend built on Netty and Protobuf.
 
@@ -12,7 +12,7 @@ A lightweight multiplayer game backend built on Netty and Protobuf.
 
 ## Project Layout
 
-- `nettygame/` - Java source, tests, and Maven build
+- `valorlegend/` - Java source, tests, and Maven build
 - `deploy/mysql/init/` - MySQL bootstrap schema
 - `.github/workflows/ci.yml` - CI pipeline (`mvn verify`)
 
@@ -32,8 +32,8 @@ Optional (for full runtime features):
 ## Quick Start (Local)
 
 ```bash
-mvn -f nettygame/pom.xml clean verify
-java -jar nettygame/target/herostory-1.1.0.jar
+mvn -f valorlegend/pom.xml clean verify
+java -jar valorlegend/target/valorlegend-1.1.0.jar
 ```
 
 Or use Make shortcuts:
@@ -51,16 +51,18 @@ Configuration can be passed via JVM properties or environment variables.
 
 | Purpose | JVM Property | Environment Variable | Default |
 | --- | --- | --- | --- |
-| Server port | `herostory.server.port` | `HERO_STORY_SERVER_PORT` | `12345` |
-| Enable MySQL | `herostory.mysql.enabled` | `HERO_STORY_MYSQL_ENABLED` | `true` |
-| MySQL JDBC URL | `herostory.mysql.jdbc-url` | `HERO_STORY_MYSQL_JDBC_URL` | local URL |
-| MySQL user | `herostory.mysql.username` | `HERO_STORY_MYSQL_USERNAME` | `root` |
-| MySQL password | `herostory.mysql.password` | `HERO_STORY_MYSQL_PASSWORD` | `ROOT` |
-| Enable Redis | `herostory.redis.enabled` | `HERO_STORY_REDIS_ENABLED` | `true` |
-| Redis host | `herostory.redis.host` | `HERO_STORY_REDIS_HOST` | `127.0.0.1` |
-| Redis port | `herostory.redis.port` | `HERO_STORY_REDIS_PORT` | `6379` |
-| Enable RocketMQ | `herostory.rocketmq.enabled` | `HERO_STORY_ROCKETMQ_ENABLED` | `true` |
-| RocketMQ NameServer | `herostory.rocketmq.namesrv` | `HERO_STORY_ROCKETMQ_NAMESRV` | `127.0.0.1:9876` |
+| Server port | `valorlegend.server.port` | `VALOR_LEGEND_SERVER_PORT` | `12345` |
+| Enable MySQL | `valorlegend.mysql.enabled` | `VALOR_LEGEND_MYSQL_ENABLED` | `true` |
+| MySQL JDBC URL | `valorlegend.mysql.jdbc-url` | `VALOR_LEGEND_MYSQL_JDBC_URL` | local URL |
+| MySQL user | `valorlegend.mysql.username` | `VALOR_LEGEND_MYSQL_USERNAME` | `root` |
+| MySQL password | `valorlegend.mysql.password` | `VALOR_LEGEND_MYSQL_PASSWORD` | `ROOT` |
+| Enable Redis | `valorlegend.redis.enabled` | `VALOR_LEGEND_REDIS_ENABLED` | `true` |
+| Redis host | `valorlegend.redis.host` | `VALOR_LEGEND_REDIS_HOST` | `127.0.0.1` |
+| Redis port | `valorlegend.redis.port` | `VALOR_LEGEND_REDIS_PORT` | `6379` |
+| Enable RocketMQ | `valorlegend.rocketmq.enabled` | `VALOR_LEGEND_ROCKETMQ_ENABLED` | `true` |
+| RocketMQ NameServer | `valorlegend.rocketmq.namesrv` | `VALOR_LEGEND_ROCKETMQ_NAMESRV` | `127.0.0.1:9876` |
+
+Legacy `herostory.*` and `HERO_STORY_*` keys are still supported for backward compatibility.
 
 ## Docker Deployment
 

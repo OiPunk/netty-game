@@ -11,7 +11,7 @@
 
 # Logs
 *.log
-nettygame/log/
+valorlegend/log/
 
 # Coverage
 **/jacoco.exec
@@ -19,4 +19,4 @@ nettygame/log/
 
 # Build artifacts
 *.jar
-!nettygame/.mvn/wrapper/maven-wrapper.jar
+!valorlegend/.mvn/wrapper/maven-wrapper.jar

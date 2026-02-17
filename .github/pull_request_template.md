@@ -4,7 +4,7 @@
 
 ## Validation
 
-- [ ] `mvn -B -f nettygame/pom.xml clean verify`
+- [ ] `mvn -B -f valorlegend/pom.xml clean verify`
 - [ ] `./scripts/run-integration-tests.sh` (if touched DB/Redis/integration path)
 
 ## Checklist

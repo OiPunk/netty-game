@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.tinygame</groupId>
-    <artifactId>herostory</artifactId>
+    <artifactId>valorlegend</artifactId>
     <version>1.1.0</version>
     <packaging>jar</packaging>
 
-    <name>Netty Game Server</name>
-    <description>A lightweight Netty-based multiplayer game backend.</description>
-    <url>https://github.com/OiPunk/netty-game</url>
+    <name>ValorLegend Server</name>
+    <description>A lightweight Netty-based multiplayer backend for ValorLegend.</description>
+    <url>https://github.com/OiPunk/valorlegend</url>
 
     <licenses>
         <license>

@@ -1,20 +1,20 @@
 services:
   game-server:
     build:
-      context: ./nettygame
-    container_name: netty-game-server
+      context: ./valorlegend
+    container_name: valorlegend-server
     ports:
       - "12345:12345"
     environment:
-      HERO_STORY_SERVER_PORT: 12345
-      HERO_STORY_MYSQL_ENABLED: "true"
-      HERO_STORY_MYSQL_JDBC_URL: "jdbc:mysql://mysql:3306/hero_story?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&autoReconnectForPools=true"
-      HERO_STORY_MYSQL_USERNAME: hero
-      HERO_STORY_MYSQL_PASSWORD: hero_pass
-      HERO_STORY_REDIS_ENABLED: "true"
-      HERO_STORY_REDIS_HOST: redis
-      HERO_STORY_REDIS_PORT: 6379
-      HERO_STORY_ROCKETMQ_ENABLED: "false"
+      VALOR_LEGEND_SERVER_PORT: 12345
+      VALOR_LEGEND_MYSQL_ENABLED: "true"
+      VALOR_LEGEND_MYSQL_JDBC_URL: "jdbc:mysql://mysql:3306/valor_legend?useSSL=false&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&autoReconnectForPools=true"
+      VALOR_LEGEND_MYSQL_USERNAME: hero
+      VALOR_LEGEND_MYSQL_PASSWORD: hero_pass
+      VALOR_LEGEND_REDIS_ENABLED: "true"
+      VALOR_LEGEND_REDIS_HOST: redis
+      VALOR_LEGEND_REDIS_PORT: 6379
+      VALOR_LEGEND_ROCKETMQ_ENABLED: "false"
     depends_on:
       mysql:
         condition: service_healthy
@@ -23,10 +23,10 @@ services:
 
   mysql:
     image: mysql:8.0
-    container_name: netty-game-mysql
+    container_name: valorlegend-mysql
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_DATABASE: hero_story
+      MYSQL_DATABASE: valor_legend
       MYSQL_USER: hero
       MYSQL_PASSWORD: hero_pass
       MYSQL_ROOT_PASSWORD: root_pass
@@ -42,14 +42,14 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: netty-game-redis
+    container_name: valorlegend-redis
     ports:
       - "6379:6379"
 
   rocketmq-namesrv:
     image: apache/rocketmq:5.3.2
     profiles: ["full"]
-    container_name: netty-game-rocketmq-namesrv
+    container_name: valorlegend-rocketmq-namesrv
     command: sh mqnamesrv
     ports:
       - "9876:9876"
@@ -57,7 +57,7 @@ services:
   rocketmq-broker:
     image: apache/rocketmq:5.3.2
     profiles: ["full"]
-    container_name: netty-game-rocketmq-broker
+    container_name: valorlegend-rocketmq-broker
     command: sh mqbroker -n rocketmq-namesrv:9876 -c /home/rocketmq/rocketmq-5.3.2/conf/broker.conf
     depends_on:
       - rocketmq-namesrv
@@ -67,16 +67,16 @@ services:
 
   rank-worker:
     build:
-      context: ./nettygame
+      context: ./valorlegend
     profiles: ["full"]
-    container_name: netty-game-rank-worker
+    container_name: valorlegend-rank-worker
     environment:
       APP_MAIN_CLASS: org.tinygame.herostory.RankApp
-      HERO_STORY_REDIS_ENABLED: "true"
-      HERO_STORY_REDIS_HOST: redis
-      HERO_STORY_REDIS_PORT: 6379
-      HERO_STORY_ROCKETMQ_ENABLED: "true"
-      HERO_STORY_ROCKETMQ_NAMESRV: rocketmq-namesrv:9876
+      VALOR_LEGEND_REDIS_ENABLED: "true"
+      VALOR_LEGEND_REDIS_HOST: redis
+      VALOR_LEGEND_REDIS_PORT: 6379
+      VALOR_LEGEND_ROCKETMQ_ENABLED: "true"
+      VALOR_LEGEND_ROCKETMQ_NAMESRV: rocketmq-namesrv:9876
     depends_on:
       - redis
       - rocketmq-broker
@@ -84,10 +84,10 @@ services:
   mysql-it:
     image: mysql:8.0
     profiles: ["integration"]
-    container_name: netty-game-it-mysql
+    container_name: valorlegend-it-mysql
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_DATABASE: hero_story
+      MYSQL_DATABASE: valor_legend
       MYSQL_USER: hero
       MYSQL_PASSWORD: hero_pass
       MYSQL_ROOT_PASSWORD: root_pass
@@ -104,6 +104,6 @@ services:
   redis-it:
     image: redis:7-alpine
     profiles: ["integration"]
-    container_name: netty-game-it-redis
+    container_name: valorlegend-it-redis
     ports:
       - "6380:6379"

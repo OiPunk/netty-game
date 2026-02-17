@@ -6,14 +6,14 @@ on:
     branches:
       - main
     paths:
-      - 'nettygame/**'
+      - 'valorlegend/**'
       - 'deploy/**'
       - 'docker-compose.yml'
       - 'scripts/run-integration-tests.sh'
       - '.github/workflows/integration-tests.yml'
   pull_request:
     paths:
-      - 'nettygame/**'
+      - 'valorlegend/**'
       - 'deploy/**'
       - 'docker-compose.yml'
       - 'scripts/run-integration-tests.sh'

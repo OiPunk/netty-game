@@ -19,7 +19,7 @@ class ExternalDependenciesIT {
         String jdbcUrl = readEnvOrProperty(
             "it.mysql.url",
             "IT_MYSQL_URL",
-            "jdbc:mysql://127.0.0.1:3307/hero_story?useSSL=false&useUnicode=true&characterEncoding=UTF-8"
+            "jdbc:mysql://127.0.0.1:3307/valor_legend?useSSL=false&useUnicode=true&characterEncoding=UTF-8"
         );
         String username = readEnvOrProperty("it.mysql.username", "IT_MYSQL_USERNAME", "hero");
         String password = readEnvOrProperty("it.mysql.password", "IT_MYSQL_PASSWORD", "hero_pass");
@@ -54,7 +54,7 @@ class ExternalDependenciesIT {
         String jdbcUrl = readEnvOrProperty(
             "it.mysql.url",
             "IT_MYSQL_URL",
-            "jdbc:mysql://127.0.0.1:3307/hero_story?useSSL=false&useUnicode=true&characterEncoding=UTF-8"
+            "jdbc:mysql://127.0.0.1:3307/valor_legend?useSSL=false&useUnicode=true&characterEncoding=UTF-8"
         );
         String username = readEnvOrProperty("it.mysql.username", "IT_MYSQL_USERNAME", "hero");
         String password = readEnvOrProperty("it.mysql.password", "IT_MYSQL_PASSWORD", "hero_pass");

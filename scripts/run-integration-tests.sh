@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 COMPOSE_FILE="$ROOT_DIR/docker-compose.yml"
-COMPOSE_PROJECT="${COMPOSE_PROJECT_NAME:-netty-game-it}"
+COMPOSE_PROJECT="${COMPOSE_PROJECT_NAME:-valorlegend-it}"
 
 require_cmd() {
   if ! command -v "$1" >/dev/null 2>&1; then
@@ -58,8 +58,8 @@ for i in {1..30}; do
   sleep 2
 done
 
-mvn -B -f "$ROOT_DIR/nettygame/pom.xml" -P integration-tests verify \
-  -Dit.mysql.url="jdbc:mysql://127.0.0.1:3307/hero_story?useSSL=false&useUnicode=true&characterEncoding=UTF-8" \
+mvn -B -f "$ROOT_DIR/valorlegend/pom.xml" -P integration-tests verify \
+  -Dit.mysql.url="jdbc:mysql://127.0.0.1:3307/valor_legend?useSSL=false&useUnicode=true&characterEncoding=UTF-8" \
   -Dit.mysql.username="hero" \
   -Dit.mysql.password="hero_pass" \
   -Dit.redis.host="127.0.0.1" \

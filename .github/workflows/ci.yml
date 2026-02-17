@@ -21,4 +21,4 @@ jobs:
           cache: maven
 
       - name: Build, test, and coverage check
-        run: mvn -B -f nettygame/pom.xml clean verify
+        run: mvn -B -f valorlegend/pom.xml clean verify

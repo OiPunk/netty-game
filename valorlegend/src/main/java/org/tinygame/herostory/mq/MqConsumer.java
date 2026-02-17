@@ -28,11 +28,11 @@ public final class MqConsumer {
             return;
         }
 
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("herostory");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("valorlegend");
         consumer.setNamesrvAddr(RuntimeConfig.rocketMqNameServer());
 
         try {
-            consumer.subscribe("herostory_victor", "*");
+            consumer.subscribe("valorlegend_victor", "*");
             consumer.registerMessageListener(new MessageListenerConcurrently() {
                 @Override
                 public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgExtList, ConsumeConcurrentlyContext ctx) {
