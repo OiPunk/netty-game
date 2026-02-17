@@ -2,6 +2,15 @@ name: Integration Tests
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'nettygame/**'
+      - 'deploy/**'
+      - 'docker-compose.yml'
+      - 'scripts/run-integration-tests.sh'
+      - '.github/workflows/integration-tests.yml'
   pull_request:
     paths:
       - 'nettygame/**'

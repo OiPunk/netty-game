@@ -16,6 +16,7 @@ class RuntimeConfigTest {
         System.clearProperty("herostory.redis.enabled");
         System.clearProperty("herostory.rocketmq.enabled");
         System.clearProperty("herostory.mysql.jdbc-url");
+        System.clearProperty("herostory.mysql.username");
     }
 
     @Test
@@ -43,5 +44,21 @@ class RuntimeConfigTest {
         assertTrue(RuntimeConfig.mysqlEnabled());
         assertFalse(RuntimeConfig.redisEnabled());
         assertFalse(RuntimeConfig.rocketMqEnabled());
+    }
+
+    @Test
+    void shouldFallbackToDefaultsWhenPropertiesAreBlank() {
+        System.setProperty("herostory.mysql.jdbc-url", "   ");
+        System.setProperty("herostory.mysql.username", "\t");
+
+        assertTrue(RuntimeConfig.mysqlJdbcUrl().startsWith("jdbc:mysql://127.0.0.1:3306/hero_story"));
+        assertEquals("root", RuntimeConfig.mysqlUsername());
+    }
+
+    @Test
+    void shouldFallbackToDefaultForUnrecognizedBooleanValue() {
+        System.setProperty("herostory.mysql.enabled", "sometimes");
+
+        assertTrue(RuntimeConfig.mysqlEnabled());
     }
 }

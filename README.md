@@ -20,6 +20,7 @@ A lightweight multiplayer game backend built on Netty and Protobuf.
 
 - JDK 8+
 - Maven 3.8+
+- Docker + Docker Compose v2 (for containerized deployment and integration tests)
 
 Optional (for full runtime features):
 
@@ -75,7 +76,8 @@ docker compose --profile full up --build
 
 - Unit tests: JUnit 5
 - Coverage: JaCoCo check in `verify`
-- CI: GitHub Actions on push and pull requests
+- CI: GitHub Actions for unit tests and coverage on all pushes/PRs
+- Integration CI: Docker-backed MySQL/Redis tests on pull requests and pushes to `main`
 
 ## Integration Tests (MySQL + Redis)
 
