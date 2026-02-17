@@ -71,7 +71,7 @@ services:
     profiles: ["full"]
     container_name: valorlegend-rank-worker
     environment:
-      APP_MAIN_CLASS: org.tinygame.herostory.RankApp
+      APP_MAIN_CLASS: org.tinygame.valorlegend.RankApp
       VALOR_LEGEND_REDIS_ENABLED: "true"
       VALOR_LEGEND_REDIS_HOST: redis
       VALOR_LEGEND_REDIS_PORT: 6379

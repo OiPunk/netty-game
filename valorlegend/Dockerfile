@@ -11,7 +11,7 @@ WORKDIR /app
 
 COPY --from=build /workspace/target/valorlegend-1.1.0.jar /app/valorlegend.jar
 
-ENV APP_MAIN_CLASS=org.tinygame.herostory.ServerMain
+ENV APP_MAIN_CLASS=org.tinygame.valorlegend.ServerMain
 EXPOSE 12345
 
 ENTRYPOINT ["sh", "-c", "java -cp /app/valorlegend.jar ${APP_MAIN_CLASS}"]
