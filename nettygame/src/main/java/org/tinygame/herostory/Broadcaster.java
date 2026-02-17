@@ -6,51 +6,33 @@ import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
 /**
- * 广播员
+ * Shared broadcaster over all connected channels.
  */
 public final class Broadcaster {
-    /**
-     * 信道组, 注意这里一定要用 static,
-     * 否则无法实现群发
-     */
-    static private final ChannelGroup _channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+    private static final ChannelGroup CHANNEL_GROUP = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
-    /**
-     * 私有化类默认构造器
-     */
     private Broadcaster() {
     }
 
-    /**
-     * 添加客户端信道
-     *
-     * @param ch 客户端信道
-     */
-    static public void addChannel(Channel ch) {
-        if (null != ch) {
-            _channelGroup.add(ch);
+    public static void addChannel(Channel ch) {
+        if (ch != null) {
+            CHANNEL_GROUP.add(ch);
         }
     }
 
-    /**
-     * 移除客户端信道
-     *
-     * @param ch 客户端信道
-     */
-    static public void removeChannel(Channel ch) {
-        if (null != ch) {
-            _channelGroup.remove(ch);
+    public static void removeChannel(Channel ch) {
+        if (ch != null) {
+            CHANNEL_GROUP.remove(ch);
         }
     }
 
-    /**
-     * 广播消息
-     *
-     * @param msg 消息对象
-     */
-    static public void broadcast(Object msg) {
-        if (null != msg) {
-            _channelGroup.writeAndFlush(msg);
+    public static void broadcast(Object msg) {
+        if (msg != null) {
+            CHANNEL_GROUP.writeAndFlush(msg);
         }
+    }
+
+    static int countChannels() {
+        return CHANNEL_GROUP.size();
     }
 }

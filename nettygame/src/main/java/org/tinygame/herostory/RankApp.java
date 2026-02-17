@@ -3,32 +3,33 @@ package org.tinygame.herostory;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tinygame.herostory.config.RuntimeConfig;
 import org.tinygame.herostory.mq.MqConsumer;
 import org.tinygame.herostory.util.RedisUtil;
 
 /**
- * 排行榜应用程序
+ * Ranking worker bootstrap.
  */
-public class RankApp {
-    /**
-     * 日志对象
-     */
-    static private final Logger LOGGER = LoggerFactory.getLogger(RankApp.class);
+public final class RankApp {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RankApp.class);
 
-    /**
-     * 应用主函数
-     *
-     * @param argvArray 参数数组
-     */
-    static public void main(String[] argvArray) {
-        // 设置 log4j 属性文件
+    private RankApp() {
+    }
+
+    public static void main(String[] argvArray) {
         PropertyConfigurator.configure(ServerMain.class.getClassLoader().getResourceAsStream("log4j.properties"));
 
-        // 初始化 Redis
-        RedisUtil.init();
-        // 初始化消息队列
-        MqConsumer.init();
+        if (RuntimeConfig.redisEnabled()) {
+            RedisUtil.init();
+        } else {
+            LOGGER.info("Redis integration is disabled");
+        }
 
-        LOGGER.info(">>> 排行榜应用启动成功! <<<");
+        if (RuntimeConfig.rocketMqEnabled()) {
+            MqConsumer.init();
+            LOGGER.info("Ranking worker started");
+        } else {
+            LOGGER.info("RocketMQ consumer is disabled. Ranking worker is idle.");
+        }
     }
 }

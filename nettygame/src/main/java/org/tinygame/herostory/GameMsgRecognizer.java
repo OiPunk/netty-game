@@ -10,128 +10,69 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 消息识别器
+ * Maps protocol message classes and protocol message codes.
  */
 public final class GameMsgRecognizer {
-    /**
-     * 日志对象
-     */
-    static private final Logger LOGGER = LoggerFactory.getLogger(GameMsgRecognizer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameMsgRecognizer.class);
 
-    /**
-     * 消息编号 -> 消息对象字典
-     */
-    static private final Map<Integer, GeneratedMessageV3> _msgCodeAndMsgObjMap = new HashMap<>();
+    private static final Map<Integer, GeneratedMessageV3> MSG_CODE_TO_DEFAULT_INSTANCE = new HashMap<>();
+    private static final Map<Class<?>, Integer> MSG_CLASS_TO_CODE = new HashMap<>();
 
-    /**
-     * 消息类 -> 消息编号字典
-     */
-    static private final Map<Class<?>, Integer> _msgClazzAndMsgCodeMap = new HashMap<>();
-
-    /**
-     * 私有化类默认构造器
-     */
     private GameMsgRecognizer() {
     }
 
-    /**
-     * 初始化
-     */
-    static public void init() {
-        LOGGER.info("=== 完成消息类与消息编号的映射 ===");
+    public static void init() {
+        MSG_CODE_TO_DEFAULT_INSTANCE.clear();
+        MSG_CLASS_TO_CODE.clear();
 
-        // 获取内部类
-        Class<?>[] innerClazzArray = GameMsgProtocol.class.getDeclaredClasses();
+        LOGGER.info("Building message code registry");
 
-        for (Class<?> innerClazz : innerClazzArray) {
-            if (null == innerClazz ||
-                !GeneratedMessageV3.class.isAssignableFrom(innerClazz)) {
-                // 如果不是消息类,
+        for (Class<?> innerClazz : GameMsgProtocol.class.getDeclaredClasses()) {
+            if (innerClazz == null || !GeneratedMessageV3.class.isAssignableFrom(innerClazz)) {
                 continue;
             }
 
-            // 获取类名称并小写
-            String clazzName = innerClazz.getSimpleName();
-            clazzName = clazzName.toLowerCase();
+            String clazzName = innerClazz.getSimpleName().toLowerCase();
 
             for (GameMsgProtocol.MsgCode msgCode : GameMsgProtocol.MsgCode.values()) {
-                if (null == msgCode) {
+                if (msgCode == null) {
                     continue;
                 }
 
-                // 获取消息编码
-                String strMsgCode = msgCode.name();
-                strMsgCode = strMsgCode.replaceAll("_", "");
-                strMsgCode = strMsgCode.toLowerCase();
-
-                if (!strMsgCode.startsWith(clazzName)) {
+                String msgCodeName = msgCode.name().replace("_", "").toLowerCase();
+                if (!msgCodeName.startsWith(clazzName)) {
                     continue;
                 }
 
                 try {
-                    // 相当于调用 UserEntryCmd.getDefaultInstance();
                     Object returnObj = innerClazz.getDeclaredMethod("getDefaultInstance").invoke(innerClazz);
+                    GeneratedMessageV3 msgInstance = (GeneratedMessageV3) returnObj;
+                    MSG_CODE_TO_DEFAULT_INSTANCE.put(msgCode.getNumber(), msgInstance);
+                    MSG_CLASS_TO_CODE.put(innerClazz, msgCode.getNumber());
 
-                    LOGGER.info(
-                        "{} <==> {}",
-                        innerClazz.getName(),
-                        msgCode.getNumber()
-                    );
-
-                    _msgCodeAndMsgObjMap.put(
-                        msgCode.getNumber(),
-                        (GeneratedMessageV3) returnObj
-                    );
-
-                    _msgClazzAndMsgCodeMap.put(
-                        innerClazz,
-                        msgCode.getNumber()
-                    );
+                    LOGGER.info("Bound {} -> {}", innerClazz.getName(), msgCode.getNumber());
                 } catch (Exception ex) {
-                    // 记录错误日志
-                    LOGGER.error(ex.getMessage(), ex);
+                    LOGGER.error("Failed to register message class {}", innerClazz.getName(), ex);
                 }
             }
         }
     }
 
-    /**
-     * 根据消息编号获取消息构建器
-     *
-     * @param msgCode 消息编码
-     * @return 消息构建器
-     */
-    static public Message.Builder getMsgBuilderByMsgCode(int msgCode) {
+    public static Message.Builder getMsgBuilderByMsgCode(int msgCode) {
         if (msgCode < 0) {
             return null;
         }
 
-        GeneratedMessageV3 defaultMsg = _msgCodeAndMsgObjMap.get(msgCode);
-
-        if (null == defaultMsg) {
-            return null;
-        } else {
-            return defaultMsg.newBuilderForType();
-        }
+        GeneratedMessageV3 defaultMsg = MSG_CODE_TO_DEFAULT_INSTANCE.get(msgCode);
+        return defaultMsg == null ? null : defaultMsg.newBuilderForType();
     }
 
-    /**
-     * 根据消息类获取消息编号
-     *
-     * @param msgClazz 消息类
-     * @return 消息编码
-     */
-    static public int getMsgCodeByMsgClazz(Class<?> msgClazz) {
-        if (null == msgClazz) {
+    public static int getMsgCodeByMsgClazz(Class<?> msgClazz) {
+        if (msgClazz == null) {
             return -1;
         }
 
-        Integer msgCode = _msgClazzAndMsgCodeMap.get(msgClazz);
-
-        if (null == msgCode) {
-            return -1;
-        } else {
-            return msgCode;
-        }
+        Integer msgCode = MSG_CLASS_TO_CODE.get(msgClazz);
+        return msgCode == null ? -1 : msgCode;
     }
 }

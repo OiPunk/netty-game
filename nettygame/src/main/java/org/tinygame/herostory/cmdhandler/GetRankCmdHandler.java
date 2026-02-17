@@ -8,41 +8,40 @@ import org.tinygame.herostory.rank.RankService;
 import java.util.Collections;
 
 /**
- * 获取排行榜指令处理器
+ * Handles rank-list query commands.
  */
 public class GetRankCmdHandler implements ICmdHandler<GameMsgProtocol.GetRankCmd> {
     @Override
     public void handle(ChannelHandlerContext ctx, GameMsgProtocol.GetRankCmd cmd) {
-        if (null == ctx ||
-            null == cmd) {
+        if (ctx == null || cmd == null) {
             return;
         }
 
-        RankService.getInstance().getRank((rankItemList) -> {
-            if (null == rankItemList) {
+        RankService.getInstance().getRank(rankItemList -> {
+            if (rankItemList == null) {
                 rankItemList = Collections.emptyList();
             }
 
             GameMsgProtocol.GetRankResult.Builder resultBuilder = GameMsgProtocol.GetRankResult.newBuilder();
 
             for (RankItem rankItem : rankItemList) {
-                if (null == rankItem) {
+                if (rankItem == null) {
                     continue;
                 }
 
-                GameMsgProtocol.GetRankResult.RankItem.Builder rankItemBuilder = GameMsgProtocol.GetRankResult.RankItem.newBuilder();
-                rankItemBuilder.setRankId(rankItem.rankId);
-                rankItemBuilder.setUserId(rankItem.userId);
-                rankItemBuilder.setUserName(rankItem.userName);
-                rankItemBuilder.setHeroAvatar(rankItem.heroAvatar);
-                rankItemBuilder.setWin(rankItem.win);
+                GameMsgProtocol.GetRankResult.RankItem rankProto = GameMsgProtocol.GetRankResult.RankItem
+                    .newBuilder()
+                    .setRankId(rankItem.rankId)
+                    .setUserId(rankItem.userId)
+                    .setUserName(rankItem.userName)
+                    .setHeroAvatar(rankItem.heroAvatar)
+                    .setWin(rankItem.win)
+                    .build();
 
-                resultBuilder.addRankItem(rankItemBuilder);
+                resultBuilder.addRankItem(rankProto);
             }
 
-            GameMsgProtocol.GetRankResult newResult = resultBuilder.build();
-            ctx.writeAndFlush(newResult);
-
+            ctx.writeAndFlush(resultBuilder.build());
             return null;
         });
     }

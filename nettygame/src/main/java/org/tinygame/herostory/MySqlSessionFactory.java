@@ -6,62 +6,51 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tinygame.herostory.config.RuntimeConfig;
+
+import java.io.InputStream;
+import java.util.Properties;
 
 /**
- * MySql 会话工厂
+ * Shared MyBatis session factory.
  */
 public final class MySqlSessionFactory {
-    /**
-     * 日志对象
-     */
-    static private final Logger LOGGER = LoggerFactory.getLogger(MySqlSessionFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MySqlSessionFactory.class);
 
-    /**
-     * MyBatis Sql 会话工厂
-     */
-    static private SqlSessionFactory _sqlSessionFactory;
+    private static SqlSessionFactory sqlSessionFactory;
 
-    /**
-     * 私有化类默认构造器
-     */
     private MySqlSessionFactory() {
     }
 
-    /**
-     * 初始化
-     */
-    static public void init() {
-        try {
-            _sqlSessionFactory = (new SqlSessionFactoryBuilder()).build(
-                Resources.getResourceAsStream("MyBatisConfig.xml")
-            );
+    public static void init() {
+        if (!RuntimeConfig.mysqlEnabled()) {
+            LOGGER.info("MySQL integration is disabled");
+            return;
+        }
 
-            // 测试数据库连接
-            SqlSession tempSession = openSession();
+        try (InputStream input = Resources.getResourceAsStream("MyBatisConfig.xml")) {
+            Properties properties = new Properties();
+            properties.setProperty("mysql.jdbc.url", RuntimeConfig.mysqlJdbcUrl());
+            properties.setProperty("mysql.username", RuntimeConfig.mysqlUsername());
+            properties.setProperty("mysql.password", RuntimeConfig.mysqlPassword());
 
-            tempSession.getConnection()
-                .createStatement()
-                .execute("SELECT -1");
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(input, properties);
 
-            tempSession.close();
+            try (SqlSession tempSession = openSession()) {
+                tempSession.getConnection().createStatement().execute("SELECT 1");
+            }
 
-            LOGGER.error("MySql 数据库连接测试成功!");
+            LOGGER.info("MySQL connection check succeeded");
         } catch (Exception ex) {
-            // 记录错误日志
-            LOGGER.error(ex.getMessage(), ex);
+            LOGGER.error("Failed to initialize MySQL session factory", ex);
         }
     }
 
-    /**
-     * 创建 MySql 会话
-     *
-     * @return MySql 会话
-     */
-    static public SqlSession openSession() {
-        if (null == _sqlSessionFactory) {
-            throw new RuntimeException("_sqlSessionFactory 尚未初始化");
+    public static SqlSession openSession() {
+        if (sqlSessionFactory == null) {
+            throw new IllegalStateException("MySQL session factory has not been initialized");
         }
 
-        return _sqlSessionFactory.openSession(true);
+        return sqlSessionFactory.openSession(true);
     }
 }

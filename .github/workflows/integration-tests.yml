@@ -1,0 +1,29 @@
+name: Integration Tests
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'nettygame/**'
+      - 'deploy/**'
+      - 'docker-compose.yml'
+      - 'scripts/run-integration-tests.sh'
+      - '.github/workflows/integration-tests.yml'
+
+jobs:
+  mysql-redis-integration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+          cache: maven
+
+      - name: Run integration tests with Docker profile
+        run: ./scripts/run-integration-tests.sh

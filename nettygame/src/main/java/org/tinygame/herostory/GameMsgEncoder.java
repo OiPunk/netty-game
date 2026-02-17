@@ -10,18 +10,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 游戏消息编码器
+ * WebSocket binary frame encoder for game protocol messages.
  */
 public class GameMsgEncoder extends ChannelOutboundHandlerAdapter {
-    /**
-     * 日志对象
-     */
-    static private final Logger LOGGER = LoggerFactory.getLogger(GameMsgEncoder.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameMsgEncoder.class);
 
     @Override
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) {
-        if (null == ctx ||
-            null == msg) {
+        if (ctx == null || msg == null) {
             return;
         }
 
@@ -31,32 +27,22 @@ public class GameMsgEncoder extends ChannelOutboundHandlerAdapter {
                 return;
             }
 
-            // 消息编码
             int msgCode = GameMsgRecognizer.getMsgCodeByMsgClazz(msg.getClass());
-
-            if (-1 == msgCode) {
-                LOGGER.error(
-                    "无法识别的消息类型, msgClazz = {}",
-                    msg.getClass().getSimpleName()
-                );
+            if (msgCode == -1) {
+                LOGGER.error("Unsupported outbound message class={}", msg.getClass().getSimpleName());
                 super.write(ctx, msg, promise);
                 return;
             }
 
-            // 消息体
             byte[] msgBody = ((GeneratedMessageV3) msg).toByteArray();
-
             ByteBuf byteBuf = ctx.alloc().buffer();
-            byteBuf.writeShort((short) msgBody.length); // 消息的长度
-            byteBuf.writeShort((short) msgCode); // 消息编号
-            byteBuf.writeBytes(msgBody); // 消息体
+            byteBuf.writeShort((short) msgBody.length);
+            byteBuf.writeShort((short) msgCode);
+            byteBuf.writeBytes(msgBody);
 
-            // 写出 ByteBuf
-            BinaryWebSocketFrame outputFrame = new BinaryWebSocketFrame(byteBuf);
-            super.write(ctx, outputFrame, promise);
+            super.write(ctx, new BinaryWebSocketFrame(byteBuf), promise);
         } catch (Exception ex) {
-            // 记录错误日志
-            LOGGER.error(ex.getMessage(), ex);
+            LOGGER.error("Failed to encode outgoing message", ex);
         }
     }
 }

@@ -5,57 +5,40 @@ import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tinygame.herostory.config.RuntimeConfig;
 
 /**
- * 消息队列生产者
+ * RocketMQ producer helper.
  */
 public final class MqProducer {
-    /**
-     * 日志对象
-     */
-    static private final Logger LOGGER = LoggerFactory.getLogger(MqProducer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MqProducer.class);
 
-    /**
-     * 消息队列生产者
-     */
-    static private DefaultMQProducer _producer = null;
+    private static DefaultMQProducer producer;
 
-    /**
-     * 私有化类默认构造器
-     */
     private MqProducer() {
     }
 
-    /**
-     * 初始化
-     */
-    static public void init() {
+    public static void init() {
+        if (!RuntimeConfig.rocketMqEnabled()) {
+            LOGGER.info("RocketMQ producer is disabled");
+            return;
+        }
+
         try {
-            // 创建消息生产者
-            DefaultMQProducer producer = new DefaultMQProducer("herostory");
-            // 指定 nameServer 地址
-            producer.setNamesrvAddr("127.0.0.1:9876");
-            producer.start();
-            producer.setRetryTimesWhenSendAsyncFailed(3);
+            DefaultMQProducer newProducer = new DefaultMQProducer("herostory");
+            newProducer.setNamesrvAddr(RuntimeConfig.rocketMqNameServer());
+            newProducer.start();
+            newProducer.setRetryTimesWhenSendAsyncFailed(3);
+            producer = newProducer;
 
-            _producer = producer;
-
-            LOGGER.info("消息队列 ( 生产者 ) 连接成功!");
+            LOGGER.info("RocketMQ producer initialized");
         } catch (Exception ex) {
-            // 记录错误日志
-            LOGGER.error(ex.getMessage(), ex);
+            LOGGER.error("Failed to initialize RocketMQ producer", ex);
         }
     }
 
-    /**
-     * 发送消息
-     *
-     * @param topic 主题
-     * @param msg   消息对象
-     */
-    static public void sendMsg(String topic, Object msg) {
-        if (null == topic ||
-            null == msg) {
+    public static void sendMsg(String topic, Object msg) {
+        if (topic == null || msg == null || producer == null) {
             return;
         }
 
@@ -64,11 +47,9 @@ public final class MqProducer {
         newMsg.setBody(JSONObject.toJSONBytes(msg));
 
         try {
-            // 发送消息
-            _producer.send(newMsg);
+            producer.send(newMsg);
         } catch (Exception ex) {
-            // 记录错误日志
-            LOGGER.error(ex.getMessage(), ex);
+            LOGGER.error("Failed to send MQ message", ex);
         }
     }
 }

@@ -2,54 +2,40 @@ package org.tinygame.herostory.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tinygame.herostory.config.RuntimeConfig;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 /**
- * Redis 实用工具类
+ * Redis utility.
  */
 public final class RedisUtil {
-    /**
-     * 日志对象
-     */
-    static private final Logger LOGGER = LoggerFactory.getLogger(RedisUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RedisUtil.class);
 
-    /**
-     * Redis 连接池
-     */
-    static private JedisPool _jedisPool = null;
+    private static JedisPool jedisPool;
 
-    /**
-     * 私有化类默认构造器
-     */
     private RedisUtil() {
     }
 
-    /**
-     * 初始化
-     */
-    static public void init() {
+    public static void init() {
+        if (!RuntimeConfig.redisEnabled()) {
+            LOGGER.info("Redis integration is disabled");
+            return;
+        }
+
         try {
-            _jedisPool = new JedisPool("127.0.0.1", 6379);
-            LOGGER.info("Redis 连接成功!");
+            jedisPool = new JedisPool(RuntimeConfig.redisHost(), RuntimeConfig.redisPort());
+            LOGGER.info("Redis connection pool initialized");
         } catch (Exception ex) {
-            // 记录错误日志
-            LOGGER.error(ex.getMessage(), ex);
+            LOGGER.error("Failed to initialize Redis connection pool", ex);
         }
     }
 
-    /**
-     * 获取 Redis 实例
-     *
-     * @return Redis 实例
-     */
-    static public Jedis getJedis() {
-        if (null == _jedisPool) {
-            throw new RuntimeException("_jedisPool 尚未初始化");
+    public static Jedis getJedis() {
+        if (jedisPool == null) {
+            throw new IllegalStateException("Redis connection pool has not been initialized");
         }
 
-        Jedis jedis = _jedisPool.getResource();
-
-        return jedis;
+        return jedisPool.getResource();
     }
 }

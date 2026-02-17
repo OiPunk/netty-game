@@ -4,16 +4,11 @@ import com.google.protobuf.GeneratedMessageV3;
 import io.netty.channel.ChannelHandlerContext;
 
 /**
- * 命令处理器接口
- *
- * @param <TCmd>
+ * Generic command handler contract.
  */
 public interface ICmdHandler<TCmd extends GeneratedMessageV3> {
     /**
-     * 处理命令
-     *
-     * @param ctx
-     * @param cmd
+     * Handle one command message.
      */
     void handle(ChannelHandlerContext ctx, TCmd cmd);
 }

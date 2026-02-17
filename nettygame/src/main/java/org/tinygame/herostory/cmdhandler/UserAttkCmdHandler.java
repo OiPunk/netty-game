@@ -10,29 +10,26 @@ import org.tinygame.herostory.mq.VictorMsg;
 import org.tinygame.herostory.msg.GameMsgProtocol;
 
 /**
- * 用户攻击命令处理器
+ * Handles attack commands.
  */
 public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkCmd> {
+    private static final AttributeKey<Integer> USER_ID_KEY = AttributeKey.valueOf("userId");
+
     @Override
     public void handle(ChannelHandlerContext ctx, GameMsgProtocol.UserAttkCmd cmd) {
-        if (null == ctx ||
-            null == cmd) {
+        if (ctx == null || cmd == null) {
             return;
         }
 
-        // 获取攻击用户 Id
-        Integer attkUserId = (Integer) ctx.channel().attr(AttributeKey.valueOf("userId")).get();
-
-        if (null == attkUserId) {
+        Integer attkUserId = ctx.channel().attr(USER_ID_KEY).get();
+        if (attkUserId == null) {
             return;
         }
 
-        // 获取目标用户 Id
         int targetUserId = cmd.getTargetUserId();
-        // 获取目标用户
         User targetUser = UserManager.getByUserId(targetUserId);
 
-        if (null == targetUser) {
+        if (targetUser == null) {
             broadcastAttkResult(attkUserId, -1);
             return;
         }
@@ -40,13 +37,10 @@ public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
         final int dmgPoint = 10;
         targetUser.currHp = targetUser.currHp - dmgPoint;
 
-        // 广播攻击结果
         broadcastAttkResult(attkUserId, targetUserId);
-        // 广播减血结果
         broadcastSubtractHpResult(targetUserId, dmgPoint);
 
         if (targetUser.currHp <= 0) {
-            // 广播死亡结果
             broadcastDieResult(targetUserId);
 
             VictorMsg newMsg = new VictorMsg();
@@ -56,59 +50,44 @@ public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
         }
     }
 
-    /**
-     * 广播攻击结果
-     *
-     * @param attkUserId   攻击用户 Id
-     * @param targetUserId 目标用户 Id
-     */
-    static private void broadcastAttkResult(int attkUserId, int targetUserId) {
+    private static void broadcastAttkResult(int attkUserId, int targetUserId) {
         if (attkUserId <= 0) {
             return;
         }
 
-        GameMsgProtocol.UserAttkResult.Builder resultBuilder = GameMsgProtocol.UserAttkResult.newBuilder();
-        resultBuilder.setAttkUserId(attkUserId);
-        resultBuilder.setTargetUserId(targetUserId);
+        GameMsgProtocol.UserAttkResult result = GameMsgProtocol.UserAttkResult
+            .newBuilder()
+            .setAttkUserId(attkUserId)
+            .setTargetUserId(targetUserId)
+            .build();
 
-        GameMsgProtocol.UserAttkResult newResult = resultBuilder.build();
-        Broadcaster.broadcast(newResult);
+        Broadcaster.broadcast(result);
     }
 
-    /**
-     * 广播减血结果
-     *
-     * @param targetUserId 目标用户 Id
-     * @param subtractHp   减血量 ( 必须 > 0 )
-     */
-    static private void broadcastSubtractHpResult(int targetUserId, int subtractHp) {
-        if (targetUserId <= 0 ||
-            subtractHp <= 0) {
+    private static void broadcastSubtractHpResult(int targetUserId, int subtractHp) {
+        if (targetUserId <= 0 || subtractHp <= 0) {
             return;
         }
 
-        GameMsgProtocol.UserSubtractHpResult.Builder resultBuilder = GameMsgProtocol.UserSubtractHpResult.newBuilder();
-        resultBuilder.setTargetUserId(targetUserId);
-        resultBuilder.setSubtractHp(subtractHp);
+        GameMsgProtocol.UserSubtractHpResult result = GameMsgProtocol.UserSubtractHpResult
+            .newBuilder()
+            .setTargetUserId(targetUserId)
+            .setSubtractHp(subtractHp)
+            .build();
 
-        GameMsgProtocol.UserSubtractHpResult newResult = resultBuilder.build();
-        Broadcaster.broadcast(newResult);
+        Broadcaster.broadcast(result);
     }
 
-    /**
-     * 广播死亡结果
-     *
-     * @param targetUserId 目标用户 Id
-     */
-    static private void broadcastDieResult(int targetUserId) {
+    private static void broadcastDieResult(int targetUserId) {
         if (targetUserId <= 0) {
             return;
         }
 
-        GameMsgProtocol.UserDieResult.Builder resultBuilder = GameMsgProtocol.UserDieResult.newBuilder();
-        resultBuilder.setTargetUserId(targetUserId);
+        GameMsgProtocol.UserDieResult result = GameMsgProtocol.UserDieResult
+            .newBuilder()
+            .setTargetUserId(targetUserId)
+            .build();
 
-        GameMsgProtocol.UserDieResult newResult = resultBuilder.build();
-        Broadcaster.broadcast(newResult);
+        Broadcaster.broadcast(result);
     }
 }

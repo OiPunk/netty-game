@@ -5,56 +5,33 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 用户管理器
+ * In-memory online user registry.
  */
 public final class UserManager {
-    /**
-     * 用户字典
-     */
-    static private final Map<Integer, User> _userMap = new ConcurrentHashMap<>();
+    private static final Map<Integer, User> USER_MAP = new ConcurrentHashMap<>();
 
-    /**
-     * 私有化类默认构造器
-     */
     private UserManager() {
     }
 
-    /**
-     * 添加用户
-     *
-     * @param u 用户
-     */
-    static public void addUser(User u) {
-        if (null != u) {
-            _userMap.putIfAbsent(u.userId, u);
+    public static void addUser(User user) {
+        if (user != null) {
+            USER_MAP.putIfAbsent(user.userId, user);
         }
     }
 
-    /**
-     * 移除用户
-     *
-     * @param userId 用户 Id
-     */
-    static public void removeByUserId(int userId) {
-        _userMap.remove(userId);
+    public static void removeByUserId(int userId) {
+        USER_MAP.remove(userId);
     }
 
-    /**
-     * 列表用户
-     *
-     * @return 用户列表
-     */
-    static public Collection<User> listUser() {
-        return _userMap.values();
+    public static Collection<User> listUser() {
+        return USER_MAP.values();
     }
 
-    /**
-     * 根据用户 Id 获取用户
-     *
-     * @param userId 用户 Id
-     * @return 用户
-     */
-    static public User getByUserId(int userId) {
-        return _userMap.get(userId);
+    public static User getByUserId(int userId) {
+        return USER_MAP.get(userId);
+    }
+
+    public static void clear() {
+        USER_MAP.clear();
     }
 }

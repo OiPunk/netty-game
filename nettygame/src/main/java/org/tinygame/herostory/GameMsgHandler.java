@@ -9,17 +9,15 @@ import org.tinygame.herostory.model.UserManager;
 import org.tinygame.herostory.msg.GameMsgProtocol;
 
 /**
- * 自定义的消息处理器
+ * Dispatches decoded messages to the main-thread processor.
  */
 public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
-    /**
-     * 日志对象
-     */
-    static private final Logger LOGGER = LoggerFactory.getLogger(GameMsgHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameMsgHandler.class);
+    private static final AttributeKey<Integer> USER_ID_KEY = AttributeKey.valueOf("userId");
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
-        if (null == ctx) {
+        if (ctx == null) {
             return;
         }
 
@@ -27,14 +25,13 @@ public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
             super.channelActive(ctx);
             Broadcaster.addChannel(ctx.channel());
         } catch (Exception ex) {
-            // 记录错误日志
-            LOGGER.error(ex.getMessage(), ex);
+            LOGGER.error("Failed on channelActive", ex);
         }
     }
 
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) {
-        if (null == ctx) {
+        if (ctx == null) {
             return;
         }
 
@@ -42,29 +39,27 @@ public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
             super.handlerRemoved(ctx);
             Broadcaster.removeChannel(ctx.channel());
 
-            Integer userId = (Integer) ctx.channel().attr(AttributeKey.valueOf("userId")).get();
-
-            if (null == userId) {
+            Integer userId = ctx.channel().attr(USER_ID_KEY).get();
+            if (userId == null) {
                 return;
             }
 
             UserManager.removeByUserId(userId);
 
-            GameMsgProtocol.UserQuitResult.Builder resultBuilder = GameMsgProtocol.UserQuitResult.newBuilder();
-            resultBuilder.setQuitUserId(userId);
+            GameMsgProtocol.UserQuitResult result = GameMsgProtocol.UserQuitResult
+                .newBuilder()
+                .setQuitUserId(userId)
+                .build();
 
-            GameMsgProtocol.UserQuitResult newResult = resultBuilder.build();
-            Broadcaster.broadcast(newResult);
+            Broadcaster.broadcast(result);
         } catch (Exception ex) {
-            // 记录错误日志
-            LOGGER.error(ex.getMessage(), ex);
+            LOGGER.error("Failed on handlerRemoved", ex);
         }
     }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) {
-        if (null == ctx ||
-            null == msg) {
+        if (ctx == null || msg == null) {
             return;
         }
 

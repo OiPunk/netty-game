@@ -8,10 +8,9 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url"
-                          value="jdbc:mysql://127.0.0.1:3306/hero_story?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;autoReconnectForPools=true"/>
-                <property name="username" value="root"/>
-                <property name="password" value="ROOT"/>
+                <property name="url" value="${mysql.jdbc.url}"/>
+                <property name="username" value="${mysql.username}"/>
+                <property name="password" value="${mysql.password}"/>
             </dataSource>
         </environment>
     </environments>

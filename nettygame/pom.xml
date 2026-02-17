@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -6,43 +6,76 @@
 
     <groupId>org.tinygame</groupId>
     <artifactId>herostory</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1.0</version>
+    <packaging>jar</packaging>
+
+    <name>Netty Game Server</name>
+    <description>A lightweight Netty-based multiplayer game backend.</description>
+    <url>https://github.com/OiPunk/netty-game</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <junit.jupiter.version>5.10.2</junit.jupiter.version>
+        <jacoco.version>0.8.12</jacoco.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.1.43.Final</version>
+            <version>4.1.108.Final</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.29</version>
+            <version>1.7.36</version>
         </dependency>
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>3.10.0-rc-1</version>
+            <version>3.25.3</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.5.3</version>
+            <version>3.5.16</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.31</version>
+            <version>5.1.49</version>
         </dependency>
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
-            <version>4.4.0</version>
+            <version>4.9.8</version>
         </dependency>
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>3.1.0</version>
+            <version>3.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -69,13 +102,153 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>3.13.0</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <excludes>
+                                <exclude>org/tinygame/herostory/msg/**</exclude>
+                                <exclude>org/tinygame/herostory/login/**</exclude>
+                                <exclude>org/tinygame/herostory/rank/**</exclude>
+                                <exclude>org/tinygame/herostory/mq/**</exclude>
+                                <exclude>org/tinygame/herostory/async/**</exclude>
+                                <exclude>org/tinygame/herostory/ServerMain*</exclude>
+                                <exclude>org/tinygame/herostory/RankApp*</exclude>
+                                <exclude>org/tinygame/herostory/MySqlSessionFactory*</exclude>
+                                <exclude>org/tinygame/herostory/MainThreadProcessor*</exclude>
+                                <exclude>org/tinygame/herostory/GameMsgHandler*</exclude>
+                                <exclude>org/tinygame/herostory/util/RedisUtil*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/UserLoginCmdHandler*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/UserAttkCmdHandler*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/GetRankCmdHandler*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/UserEntryCmdHandler*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/WhoElseIsHereCmdHandler*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/UserMoveToCmdHandler*</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>check</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <rule>
+                                    <element>BUNDLE</element>
+                                    <limits>
+                                        <limit>
+                                            <counter>LINE</counter>
+                                            <value>COVEREDRATIO</value>
+                                            <minimum>0.60</minimum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                            <excludes>
+                                <exclude>org/tinygame/herostory/msg/**</exclude>
+                                <exclude>org/tinygame/herostory/login/**</exclude>
+                                <exclude>org/tinygame/herostory/rank/**</exclude>
+                                <exclude>org/tinygame/herostory/mq/**</exclude>
+                                <exclude>org/tinygame/herostory/async/**</exclude>
+                                <exclude>org/tinygame/herostory/ServerMain*</exclude>
+                                <exclude>org/tinygame/herostory/RankApp*</exclude>
+                                <exclude>org/tinygame/herostory/MySqlSessionFactory*</exclude>
+                                <exclude>org/tinygame/herostory/MainThreadProcessor*</exclude>
+                                <exclude>org/tinygame/herostory/GameMsgHandler*</exclude>
+                                <exclude>org/tinygame/herostory/util/RedisUtil*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/UserLoginCmdHandler*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/UserAttkCmdHandler*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/GetRankCmdHandler*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/UserEntryCmdHandler*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/WhoElseIsHereCmdHandler*</exclude>
+                                <exclude>org/tinygame/herostory/cmdhandler/UserMoveToCmdHandler*</exclude>
+                            </excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>org.tinygame.herostory.ServerMain</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>integration-tests</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>3.2.5</version>
+                        <configuration>
+                            <includes>
+                                <include>**/*IT.java</include>
+                            </includes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

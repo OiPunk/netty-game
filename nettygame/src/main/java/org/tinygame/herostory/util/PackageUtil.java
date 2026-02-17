@@ -1,383 +1,163 @@
 package org.tinygame.herostory.util;
 
 import java.io.File;
-import java.io.FileInputStream;
+import java.net.JarURLConnection;
 import java.net.URL;
-import java.util.*;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.jar.JarEntry;
-import java.util.jar.JarInputStream;
+import java.util.jar.JarFile;
 
 /**
- * 名称空间实用工具
+ * Classpath package scanning helpers.
  */
 public final class PackageUtil {
-    /**
-     * 类默认构造器
-     */
     private PackageUtil() {
     }
 
-    /**
-     * 列表指定包中的所有子类
-     *
-     * @param packageName 包名称
-     * @param recursive   是否递归查找
-     * @param superClazz  父类的类型
-     * @return 子类集合
-     */
-    static public Set<Class<?>> listSubClazz(
-        String packageName,
-        boolean recursive,
-        Class<?> superClazz) {
+    public static Set<Class<?>> listSubClazz(String packageName, boolean recursive, Class<?> superClazz) {
         if (superClazz == null) {
             return Collections.emptySet();
-        } else {
-            return listClazz(packageName, recursive, superClazz::isAssignableFrom);
         }
+
+        return listClazz(packageName, recursive, superClazz::isAssignableFrom);
     }
 
-    /**
-     * 列表指定包中的所有类
-     *
-     * @param packageName 包名称
-     * @param recursive   是否递归查找?
-     * @param filter      过滤器
-     * @return 符合条件的类集合
-     */
-    static public Set<Class<?>> listClazz(
-        String packageName, boolean recursive, IClazzFilter filter) {
-
-        if (packageName == null ||
-            packageName.isEmpty()) {
-            return null;
+    public static Set<Class<?>> listClazz(String packageName, boolean recursive, IClazzFilter filter) {
+        if (packageName == null || packageName.trim().isEmpty()) {
+            return Collections.emptySet();
         }
 
-        // 将点转换成斜杠
-        final String packagePath = packageName.replace('.', '/');
-        // 获取类加载器
-        ClassLoader cl = Thread.currentThread().getContextClassLoader();
-
-        // 结果集合
-        Set<Class<?>> resultSet = new HashSet<>();
+        String packagePath = packageName.replace('.', '/');
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        Set<Class<?>> result = new HashSet<>();
 
         try {
-            // 获取 URL 枚举
-            Enumeration<URL> urlEnum = cl.getResources(packagePath);
+            Enumeration<URL> resources = classLoader.getResources(packagePath);
+            while (resources.hasMoreElements()) {
+                URL resource = resources.nextElement();
+                String protocol = resource.getProtocol();
 
-            while (urlEnum.hasMoreElements()) {
-                // 获取当前 URL
-                URL currUrl = urlEnum.nextElement();
-                // 获取协议文本
-                final String protocol = currUrl.getProtocol();
-                // 定义临时集合
-                Set<Class<?>> tmpSet = null;
-
-                if ("FILE".equalsIgnoreCase(protocol)) {
-                    // 从文件系统中加载类
-                    tmpSet = listClazzFromDir(
-                        new File(currUrl.getFile()), packageName, recursive, filter
-                    );
-                } else if ("JAR".equalsIgnoreCase(protocol)) {
-                    // 获取文件字符串
-                    String fileStr = currUrl.getFile();
-
-                    if (fileStr.startsWith("file:")) {
-                        // 如果是以 "file:" 开头的,
-                        // 则去除这个开头
-                        fileStr = fileStr.substring(5);
+                if ("file".equalsIgnoreCase(protocol)) {
+                    File rootDir = new File(URLDecoder.decode(resource.getFile(), StandardCharsets.UTF_8.name()));
+                    result.addAll(listFromDirectory(rootDir, packageName, recursive, filter, classLoader));
+                } else if ("jar".equalsIgnoreCase(protocol)) {
+                    JarURLConnection conn = (JarURLConnection) resource.openConnection();
+                    try (JarFile jarFile = conn.getJarFile()) {
+                        result.addAll(listFromJar(jarFile, packageName, packagePath, recursive, filter, classLoader));
                     }
-
-                    if (fileStr.lastIndexOf('!') > 0) {
-                        // 如果有 '!' 字符,
-                        // 则截断 '!' 字符之后的所有字符
-                        fileStr = fileStr.substring(0, fileStr.lastIndexOf('!'));
-                    }
-
-                    // 从 JAR 文件中加载类
-                    tmpSet = listClazzFromJar(
-                        new File(fileStr), packageName, recursive, filter
-                    );
-                }
-
-                if (tmpSet != null) {
-                    // 如果类集合不为空,
-                    // 则添加到结果中
-                    resultSet.addAll(tmpSet);
                 }
             }
         } catch (Exception ex) {
-            // 抛出异常!
-            throw new RuntimeException(ex);
+            throw new RuntimeException("Failed to scan package: " + packageName, ex);
         }
 
-        return resultSet;
+        return result;
     }
 
-    /**
-     * 从目录中获取类列表
-     *
-     * @param dirFile     目录
-     * @param packageName 包名称
-     * @param recursive   是否递归查询子包
-     * @param filter      类过滤器
-     * @return 符合条件的类集合
-     */
-    static private Set<Class<?>> listClazzFromDir(
-        final File dirFile, final String packageName, final boolean recursive, IClazzFilter filter) {
-
-        if (!dirFile.exists() ||
-            !dirFile.isDirectory()) {
-            // 如果参数对象为空,
-            // 则直接退出!
-            return null;
+    private static Set<Class<?>> listFromDirectory(File rootDir,
+                                                   String packageName,
+                                                   boolean recursive,
+                                                   IClazzFilter filter,
+                                                   ClassLoader classLoader) {
+        if (rootDir == null || !rootDir.exists() || !rootDir.isDirectory()) {
+            return Collections.emptySet();
         }
 
-        // 获取子文件列表
-        File[] subFileArr = dirFile.listFiles();
-
-        if (subFileArr == null ||
-            subFileArr.length <= 0) {
-            return null;
+        Set<Class<?>> result = new HashSet<>();
+        File[] files = rootDir.listFiles();
+        if (files == null) {
+            return result;
         }
 
-        // 文件队列, 将子文件列表添加到队列
-        Queue<File> fileQ = new LinkedList<>(Arrays.asList(subFileArr));
-
-        // 结果对象
-        Set<Class<?>> resultSet = new HashSet<>();
-
-        while (!fileQ.isEmpty()) {
-            // 从队列中获取文件
-            File currFile = fileQ.poll();
-
-            if (currFile.isDirectory() &&
-                recursive) {
-                // 如果当前文件是目录,
-                // 并且是执行递归操作时,
-                // 获取子文件列表
-                subFileArr = currFile.listFiles();
-
-                if (subFileArr != null &&
-                    subFileArr.length > 0) {
-                    // 添加文件到队列
-                    fileQ.addAll(Arrays.asList(subFileArr));
-                }
+        for (File file : files) {
+            if (file == null) {
                 continue;
             }
 
-            if (!currFile.isFile() ||
-                !currFile.getName().endsWith(".class")) {
-                // 如果当前文件不是文件,
-                // 或者文件名不是以 .class 结尾,
-                // 则直接跳过
-                continue;
-            }
-
-            // 类名称
-            String clazzName;
-
-            // 设置类名称
-            clazzName = currFile.getAbsolutePath();
-            // 清除最后的 .class 结尾
-            clazzName = clazzName.substring(dirFile.getAbsolutePath().length(), clazzName.lastIndexOf('.'));
-            // 转换目录斜杠
-            clazzName = clazzName.replace('\\', '/');
-            // 清除开头的 /
-            clazzName = trimLeft(clazzName, "/");
-            // 将所有的 / 修改为 .
-            clazzName = join(clazzName.split("/"), ".");
-            // 包名 + 类名
-            clazzName = packageName + "." + clazzName;
-
-            try {
-                // 加载类定义
-                Class<?> clazzObj = Class.forName(clazzName);
-
-                if (null != filter &&
-                    !filter.accept(clazzObj)) {
-                    // 如果过滤器不为空,
-                    // 且过滤器不接受当前类,
-                    // 则直接跳过!
-                    continue;
-                }
-
-                // 添加类定义到集合
-                resultSet.add(clazzObj);
-            } catch (Exception ex) {
-                // 抛出异常
-                throw new RuntimeException(ex);
-            }
-        }
-
-        return resultSet;
-    }
-
-    /**
-     * 从 .jar 文件中获取类列表
-     *
-     * @param jarFilePath .jar 文件路径
-     * @param packageName 包名称
-     * @param recursive   是否递归查询子包
-     * @param filter      类过滤器
-     * @return 符合条件的类集合
-     */
-    static private Set<Class<?>> listClazzFromJar(
-        final File jarFilePath, final String packageName, final boolean recursive, IClazzFilter filter) {
-
-        if (jarFilePath == null ||
-            jarFilePath.isDirectory()) {
-            // 如果参数对象为空,
-            // 则直接退出!
-            return null;
-        }
-
-        // 结果对象
-        Set<Class<?>> resultSet = new HashSet<>();
-
-        try {
-            // 创建 .jar 文件读入流
-            JarInputStream jarIn = new JarInputStream(new FileInputStream(jarFilePath));
-            // 进入点
-            JarEntry entry;
-
-            while ((entry = jarIn.getNextJarEntry()) != null) {
-                if (entry.isDirectory()) {
-                    continue;
-                }
-
-                // 获取进入点名称
-                String entryName = entry.getName();
-
-                if (!entryName.endsWith(".class")) {
-                    // 如果不是以 .class 结尾,
-                    // 则说明不是 JAVA 类文件, 直接跳过!
-                    continue;
-                }
-
-
-                //
-                // 如果没有开启递归模式,
-                // 那么就需要判断当前 .class 文件是否在指定目录下?
-                //
-                // 获取目录名称
-                String tmpStr = entryName.substring(0, entryName.lastIndexOf('/'));
-                // 将目录中的 "/" 全部替换成 "."
-                tmpStr = join(tmpStr.split("/"), ".");
-
+            if (file.isDirectory()) {
                 if (!recursive) {
-                    if (!packageName.equals(tmpStr)) {
-                        // 如果不是我们要找的包,
-                        continue;
-                    }
-                } else {
-                    if (!tmpStr.startsWith(packageName)) {
-                        // 如果不是子包,
-                        continue;
-                    }
-                }
-
-                String clazzName;
-
-                // 清除最后的 .class 结尾
-                clazzName = entryName.substring(0, entryName.lastIndexOf('.'));
-                // 将所有的 / 修改为 .
-                clazzName = join(clazzName.split("/"), ".");
-
-                // 加载类定义
-                Class<?> clazzObj = Class.forName(clazzName);
-
-                if (null != filter &&
-                    !filter.accept(clazzObj)) {
-                    // 如果过滤器不为空,
-                    // 且过滤器不接受当前类,
-                    // 则直接跳过!
                     continue;
                 }
 
-                // 添加类定义到集合
-                resultSet.add(clazzObj);
+                String subPackageName = packageName + "." + file.getName();
+                result.addAll(listFromDirectory(file, subPackageName, true, filter, classLoader));
+                continue;
             }
 
-            // 关闭 jar 输入流
-            jarIn.close();
-        } catch (Exception ex) {
-            // 抛出异常
-            throw new RuntimeException(ex);
+            if (!file.isFile() || !file.getName().endsWith(".class")) {
+                continue;
+            }
+
+            String className = packageName + "." + file.getName().substring(0, file.getName().length() - 6);
+            tryLoadClass(className, filter, classLoader, result);
         }
 
-        return resultSet;
+        return result;
+    }
+
+    private static Set<Class<?>> listFromJar(JarFile jarFile,
+                                             String packageName,
+                                             String packagePath,
+                                             boolean recursive,
+                                             IClazzFilter filter,
+                                             ClassLoader classLoader) {
+        Set<Class<?>> result = new HashSet<>();
+        Enumeration<JarEntry> entries = jarFile.entries();
+
+        while (entries.hasMoreElements()) {
+            JarEntry entry = entries.nextElement();
+            if (entry == null || entry.isDirectory()) {
+                continue;
+            }
+
+            String entryName = entry.getName();
+            if (!entryName.endsWith(".class") || !entryName.startsWith(packagePath + "/")) {
+                continue;
+            }
+
+            if (!recursive) {
+                String tail = entryName.substring(packagePath.length() + 1);
+                if (tail.contains("/")) {
+                    continue;
+                }
+            }
+
+            String className = entryName.substring(0, entryName.length() - 6).replace('/', '.');
+            if (!className.startsWith(packageName + ".")) {
+                continue;
+            }
+
+            tryLoadClass(className, filter, classLoader, result);
+        }
+
+        return result;
+    }
+
+    private static void tryLoadClass(String className,
+                                     IClazzFilter filter,
+                                     ClassLoader classLoader,
+                                     Set<Class<?>> result) {
+        try {
+            Class<?> clazzObj = Class.forName(className, false, classLoader);
+            if (filter != null && !filter.accept(clazzObj)) {
+                return;
+            }
+
+            result.add(clazzObj);
+        } catch (Throwable ignored) {
+            // Ignore classes that cannot be loaded in the current runtime.
+        }
     }
 
     /**
-     * 类名称过滤器
-     *
-     * @author hjj2019
+     * Class predicate used by package scanning.
      */
-    @FunctionalInterface
-    static public interface IClazzFilter {
-        /**
-         * 是否接受当前类?
-         *
-         * @param clazz 被筛选的类
-         * @return 是否符合条件
-         */
+    public interface IClazzFilter {
         boolean accept(Class<?> clazz);
-    }
-
-    /**
-     * 使用连接符连接字符串数组
-     *
-     * @param strArr 字符串数组
-     * @param conn   连接符
-     * @return 连接后的字符串
-     */
-    static private String join(String[] strArr, String conn) {
-        if (null == strArr ||
-            strArr.length <= 0) {
-            return "";
-        }
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < strArr.length; i++) {
-            if (i > 0) {
-                // 添加连接符
-                sb.append(conn);
-            }
-
-            // 添加字符串
-            sb.append(strArr[i]);
-        }
-
-        return sb.toString();
-    }
-
-    /**
-     * 清除源字符串左边的字符串
-     *
-     * @param src     原字符串
-     * @param trimStr 需要被清除的字符串
-     * @return 清除后的字符串
-     */
-    static private String trimLeft(String src, String trimStr) {
-        if (null == src ||
-            src.isEmpty()) {
-            return "";
-        }
-
-        if (null == trimStr ||
-            trimStr.isEmpty()) {
-            return src;
-        }
-
-        if (src.equals(trimStr)) {
-            return "";
-        }
-
-        while (src.startsWith(trimStr)) {
-            src = src.substring(trimStr.length());
-        }
-
-        return src;
     }
 }

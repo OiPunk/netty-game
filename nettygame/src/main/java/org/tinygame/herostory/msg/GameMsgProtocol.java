@@ -17,169 +17,87 @@ public final class GameMsgProtocol {
             (com.google.protobuf.ExtensionRegistryLite) registry);
     }
 
-    /**
-     * <pre>
-     * 消息代号
-     * </pre>
-     * <p>
-     * Protobuf enum {@code msg.MsgCode}
-     */
+    
     public enum MsgCode
         implements com.google.protobuf.ProtocolMessageEnum {
-        /**
-         * <code>USER_ENTRY_CMD = 0;</code>
-         */
+        
         USER_ENTRY_CMD(0),
-        /**
-         * <code>USER_ENTRY_RESULT = 1;</code>
-         */
+        
         USER_ENTRY_RESULT(1),
-        /**
-         * <code>WHO_ELSE_IS_HERE_CMD = 2;</code>
-         */
+        
         WHO_ELSE_IS_HERE_CMD(2),
-        /**
-         * <code>WHO_ELSE_IS_HERE_RESULT = 3;</code>
-         */
+        
         WHO_ELSE_IS_HERE_RESULT(3),
-        /**
-         * <code>USER_MOVE_TO_CMD = 4;</code>
-         */
+        
         USER_MOVE_TO_CMD(4),
-        /**
-         * <code>USER_MOVE_TO_RESULT = 5;</code>
-         */
+        
         USER_MOVE_TO_RESULT(5),
-        /**
-         * <code>USER_QUIT_RESULT = 6;</code>
-         */
+        
         USER_QUIT_RESULT(6),
-        /**
-         * <code>USER_STOP_CMD = 7;</code>
-         */
+        
         USER_STOP_CMD(7),
-        /**
-         * <code>USER_STOP_RESULT = 8;</code>
-         */
+        
         USER_STOP_RESULT(8),
-        /**
-         * <code>USER_ATTK_CMD = 9;</code>
-         */
+        
         USER_ATTK_CMD(9),
-        /**
-         * <code>USER_ATTK_RESULT = 10;</code>
-         */
+        
         USER_ATTK_RESULT(10),
-        /**
-         * <code>USER_SUBTRACT_HP_RESULT = 11;</code>
-         */
+        
         USER_SUBTRACT_HP_RESULT(11),
-        /**
-         * <code>USER_DIE_RESULT = 12;</code>
-         */
+        
         USER_DIE_RESULT(12),
-        /**
-         * <code>USER_LOGIN_CMD = 13;</code>
-         */
+        
         USER_LOGIN_CMD(13),
-        /**
-         * <code>USER_LOGIN_RESULT = 14;</code>
-         */
+        
         USER_LOGIN_RESULT(14),
-        /**
-         * <code>SELECT_HERO_CMD = 15;</code>
-         */
+        
         SELECT_HERO_CMD(15),
-        /**
-         * <code>SELECT_HERO_RESULT = 16;</code>
-         */
+        
         SELECT_HERO_RESULT(16),
-        /**
-         * <code>GET_RANK_CMD = 17;</code>
-         */
+        
         GET_RANK_CMD(17),
-        /**
-         * <code>GET_RANK_RESULT = 18;</code>
-         */
+        
         GET_RANK_RESULT(18),
         UNRECOGNIZED(-1),
         ;
 
-        /**
-         * <code>USER_ENTRY_CMD = 0;</code>
-         */
+        
         public static final int USER_ENTRY_CMD_VALUE = 0;
-        /**
-         * <code>USER_ENTRY_RESULT = 1;</code>
-         */
+        
         public static final int USER_ENTRY_RESULT_VALUE = 1;
-        /**
-         * <code>WHO_ELSE_IS_HERE_CMD = 2;</code>
-         */
+        
         public static final int WHO_ELSE_IS_HERE_CMD_VALUE = 2;
-        /**
-         * <code>WHO_ELSE_IS_HERE_RESULT = 3;</code>
-         */
+        
         public static final int WHO_ELSE_IS_HERE_RESULT_VALUE = 3;
-        /**
-         * <code>USER_MOVE_TO_CMD = 4;</code>
-         */
+        
         public static final int USER_MOVE_TO_CMD_VALUE = 4;
-        /**
-         * <code>USER_MOVE_TO_RESULT = 5;</code>
-         */
+        
         public static final int USER_MOVE_TO_RESULT_VALUE = 5;
-        /**
-         * <code>USER_QUIT_RESULT = 6;</code>
-         */
+        
         public static final int USER_QUIT_RESULT_VALUE = 6;
-        /**
-         * <code>USER_STOP_CMD = 7;</code>
-         */
+        
         public static final int USER_STOP_CMD_VALUE = 7;
-        /**
-         * <code>USER_STOP_RESULT = 8;</code>
-         */
+        
         public static final int USER_STOP_RESULT_VALUE = 8;
-        /**
-         * <code>USER_ATTK_CMD = 9;</code>
-         */
+        
         public static final int USER_ATTK_CMD_VALUE = 9;
-        /**
-         * <code>USER_ATTK_RESULT = 10;</code>
-         */
+        
         public static final int USER_ATTK_RESULT_VALUE = 10;
-        /**
-         * <code>USER_SUBTRACT_HP_RESULT = 11;</code>
-         */
+        
         public static final int USER_SUBTRACT_HP_RESULT_VALUE = 11;
-        /**
-         * <code>USER_DIE_RESULT = 12;</code>
-         */
+        
         public static final int USER_DIE_RESULT_VALUE = 12;
-        /**
-         * <code>USER_LOGIN_CMD = 13;</code>
-         */
+        
         public static final int USER_LOGIN_CMD_VALUE = 13;
-        /**
-         * <code>USER_LOGIN_RESULT = 14;</code>
-         */
+        
         public static final int USER_LOGIN_RESULT_VALUE = 14;
-        /**
-         * <code>SELECT_HERO_CMD = 15;</code>
-         */
+        
         public static final int SELECT_HERO_CMD_VALUE = 15;
-        /**
-         * <code>SELECT_HERO_RESULT = 16;</code>
-         */
+        
         public static final int SELECT_HERO_RESULT_VALUE = 16;
-        /**
-         * <code>GET_RANK_CMD = 17;</code>
-         */
+        
         public static final int GET_RANK_CMD_VALUE = 17;
-        /**
-         * <code>GET_RANK_RESULT = 18;</code>
-         */
+        
         public static final int GET_RANK_RESULT_VALUE = 18;
 
 
@@ -191,20 +109,13 @@ public final class GameMsgProtocol {
             return value;
         }
 
-        /**
-         * @param value The numeric wire value of the corresponding enum entry.
-         * @return The enum associated with the given numeric wire value.
-         * @deprecated Use {@link #forNumber(int)} instead.
-         */
+        
         @java.lang.Deprecated
         public static MsgCode valueOf(int value) {
             return forNumber(value);
         }
 
-        /**
-         * @param value The numeric wire value of the corresponding enum entry.
-         * @return The enum associated with the given numeric wire value.
-         */
+        
         public static MsgCode forNumber(int value) {
             switch (value) {
                 case 0:
@@ -306,16 +217,7 @@ public final class GameMsgProtocol {
         com.google.protobuf.MessageOrBuilder {
     }
 
-    /**
-     * <pre>
-     *
-     * 用户入场
-     * /////////////////////////////////////////////////////////////////////
-     * 指令
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserEntryCmd}
-     */
+    
     public static final class UserEntryCmd extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserEntryCmd)
@@ -556,16 +458,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         *
-         * 用户入场
-         * /////////////////////////////////////////////////////////////////////
-         * 指令
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserEntryCmd}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserEntryCmd)
@@ -770,71 +663,25 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserEntryResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 用户 Id
-         * </pre>
-         *
-         * <code>uint32 userId = 1;</code>
-         *
-         * @return The userId.
-         */
+        
         int getUserId();
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 2;</code>
-         *
-         * @return The userName.
-         */
+        
         java.lang.String getUserName();
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 2;</code>
-         *
-         * @return The bytes for userName.
-         */
+        
         com.google.protobuf.ByteString
         getUserNameBytes();
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 3;</code>
-         *
-         * @return The heroAvatar.
-         */
+        
         java.lang.String getHeroAvatar();
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 3;</code>
-         *
-         * @return The bytes for heroAvatar.
-         */
+        
         com.google.protobuf.ByteString
         getHeroAvatarBytes();
     }
 
-    /**
-     * <pre>
-     * 结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserEntryResult}
-     */
+    
     public static final class UserEntryResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserEntryResult)
@@ -935,15 +782,7 @@ public final class GameMsgProtocol {
         public static final int USERID_FIELD_NUMBER = 1;
         private int userId_;
 
-        /**
-         * <pre>
-         * 用户 Id
-         * </pre>
-         *
-         * <code>uint32 userId = 1;</code>
-         *
-         * @return The userId.
-         */
+        
         public int getUserId() {
             return userId_;
         }
@@ -951,15 +790,7 @@ public final class GameMsgProtocol {
         public static final int USERNAME_FIELD_NUMBER = 2;
         private volatile java.lang.Object userName_;
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 2;</code>
-         *
-         * @return The userName.
-         */
+        
         public java.lang.String getUserName() {
             java.lang.Object ref = userName_;
             if (ref instanceof java.lang.String) {
@@ -973,15 +804,7 @@ public final class GameMsgProtocol {
             }
         }
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 2;</code>
-         *
-         * @return The bytes for userName.
-         */
+        
         public com.google.protobuf.ByteString
         getUserNameBytes() {
             java.lang.Object ref = userName_;
@@ -999,15 +822,7 @@ public final class GameMsgProtocol {
         public static final int HEROAVATAR_FIELD_NUMBER = 3;
         private volatile java.lang.Object heroAvatar_;
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 3;</code>
-         *
-         * @return The heroAvatar.
-         */
+        
         public java.lang.String getHeroAvatar() {
             java.lang.Object ref = heroAvatar_;
             if (ref instanceof java.lang.String) {
@@ -1021,15 +836,7 @@ public final class GameMsgProtocol {
             }
         }
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 3;</code>
-         *
-         * @return The bytes for heroAvatar.
-         */
+        
         public com.google.protobuf.ByteString
         getHeroAvatarBytes() {
             java.lang.Object ref = heroAvatar_;
@@ -1237,13 +1044,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserEntryResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserEntryResult)
@@ -1413,29 +1214,12 @@ public final class GameMsgProtocol {
 
             private int userId_;
 
-            /**
-             * <pre>
-             * 用户 Id
-             * </pre>
-             *
-             * <code>uint32 userId = 1;</code>
-             *
-             * @return The userId.
-             */
+            
             public int getUserId() {
                 return userId_;
             }
 
-            /**
-             * <pre>
-             * 用户 Id
-             * </pre>
-             *
-             * <code>uint32 userId = 1;</code>
-             *
-             * @param value The userId to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setUserId(int value) {
 
                 userId_ = value;
@@ -1443,15 +1227,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户 Id
-             * </pre>
-             *
-             * <code>uint32 userId = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearUserId() {
 
                 userId_ = 0;
@@ -1461,15 +1237,7 @@ public final class GameMsgProtocol {
 
             private java.lang.Object userName_ = "";
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @return The userName.
-             */
+            
             public java.lang.String getUserName() {
                 java.lang.Object ref = userName_;
                 if (!(ref instanceof java.lang.String)) {
@@ -1483,15 +1251,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @return The bytes for userName.
-             */
+            
             public com.google.protobuf.ByteString
             getUserNameBytes() {
                 java.lang.Object ref = userName_;
@@ -1506,16 +1266,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @param value The userName to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setUserName(
                 java.lang.String value) {
                 if (value == null) {
@@ -1527,15 +1278,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearUserName() {
 
                 userName_ = getDefaultInstance().getUserName();
@@ -1543,16 +1286,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @param value The bytes for userName to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setUserNameBytes(
                 com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -1567,15 +1301,7 @@ public final class GameMsgProtocol {
 
             private java.lang.Object heroAvatar_ = "";
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @return The heroAvatar.
-             */
+            
             public java.lang.String getHeroAvatar() {
                 java.lang.Object ref = heroAvatar_;
                 if (!(ref instanceof java.lang.String)) {
@@ -1589,15 +1315,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @return The bytes for heroAvatar.
-             */
+            
             public com.google.protobuf.ByteString
             getHeroAvatarBytes() {
                 java.lang.Object ref = heroAvatar_;
@@ -1612,16 +1330,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @param value The heroAvatar to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setHeroAvatar(
                 java.lang.String value) {
                 if (value == null) {
@@ -1633,15 +1342,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearHeroAvatar() {
 
                 heroAvatar_ = getDefaultInstance().getHeroAvatar();
@@ -1649,16 +1350,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @param value The bytes for heroAvatar to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setHeroAvatarBytes(
                 com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -1730,15 +1422,7 @@ public final class GameMsgProtocol {
         com.google.protobuf.MessageOrBuilder {
     }
 
-    /**
-     * <pre>
-     * 还有谁在场
-     * /////////////////////////////////////////////////////////////////////
-     * 指令
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.WhoElseIsHereCmd}
-     */
+    
     public static final class WhoElseIsHereCmd extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.WhoElseIsHereCmd)
@@ -1979,15 +1663,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 还有谁在场
-         * /////////////////////////////////////////////////////////////////////
-         * 指令
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.WhoElseIsHereCmd}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.WhoElseIsHereCmd)
@@ -2193,62 +1869,26 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.WhoElseIsHereResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 用户信息数组
-         * </pre>
-         *
-         * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-         */
+        
         java.util.List<org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo>
         getUserInfoList();
 
-        /**
-         * <pre>
-         * 用户信息数组
-         * </pre>
-         *
-         * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-         */
+        
         org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo getUserInfo(int index);
 
-        /**
-         * <pre>
-         * 用户信息数组
-         * </pre>
-         *
-         * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-         */
+        
         int getUserInfoCount();
 
-        /**
-         * <pre>
-         * 用户信息数组
-         * </pre>
-         *
-         * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-         */
+        
         java.util.List<? extends org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfoOrBuilder>
         getUserInfoOrBuilderList();
 
-        /**
-         * <pre>
-         * 用户信息数组
-         * </pre>
-         *
-         * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-         */
+        
         org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfoOrBuilder getUserInfoOrBuilder(
             int index);
     }
 
-    /**
-     * <pre>
-     * 结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.WhoElseIsHereResult}
-     */
+    
     public static final class WhoElseIsHereResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.WhoElseIsHereResult)
@@ -2345,102 +1985,34 @@ public final class GameMsgProtocol {
             // @@protoc_insertion_point(interface_extends:msg.WhoElseIsHereResult.UserInfo)
             com.google.protobuf.MessageOrBuilder {
 
-            /**
-             * <pre>
-             * 用户 Id
-             * </pre>
-             *
-             * <code>uint32 userId = 1;</code>
-             *
-             * @return The userId.
-             */
+            
             int getUserId();
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @return The userName.
-             */
+            
             java.lang.String getUserName();
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @return The bytes for userName.
-             */
+            
             com.google.protobuf.ByteString
             getUserNameBytes();
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @return The heroAvatar.
-             */
+            
             java.lang.String getHeroAvatar();
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @return The bytes for heroAvatar.
-             */
+            
             com.google.protobuf.ByteString
             getHeroAvatarBytes();
 
-            /**
-             * <pre>
-             * 移动状态
-             * </pre>
-             *
-             * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-             *
-             * @return Whether the moveState field is set.
-             */
+            
             boolean hasMoveState();
 
-            /**
-             * <pre>
-             * 移动状态
-             * </pre>
-             *
-             * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-             *
-             * @return The moveState.
-             */
+            
             org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState getMoveState();
 
-            /**
-             * <pre>
-             * 移动状态
-             * </pre>
-             *
-             * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-             */
+            
             org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveStateOrBuilder getMoveStateOrBuilder();
         }
 
-        /**
-         * <pre>
-         * 用户信息
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.WhoElseIsHereResult.UserInfo}
-         */
+        
         public static final class UserInfo extends
             com.google.protobuf.GeneratedMessageV3 implements
             // @@protoc_insertion_point(message_implements:msg.WhoElseIsHereResult.UserInfo)
@@ -2555,69 +2127,23 @@ public final class GameMsgProtocol {
                 // @@protoc_insertion_point(interface_extends:msg.WhoElseIsHereResult.UserInfo.MoveState)
                 com.google.protobuf.MessageOrBuilder {
 
-                /**
-                 * <pre>
-                 * 起始位置 X
-                 * </pre>
-                 *
-                 * <code>float fromPosX = 1;</code>
-                 *
-                 * @return The fromPosX.
-                 */
+                
                 float getFromPosX();
 
-                /**
-                 * <pre>
-                 * 起始位置 Y
-                 * </pre>
-                 *
-                 * <code>float fromPosY = 2;</code>
-                 *
-                 * @return The fromPosY.
-                 */
+                
                 float getFromPosY();
 
-                /**
-                 * <pre>
-                 * 移动到位置 X
-                 * </pre>
-                 *
-                 * <code>float toPosX = 3;</code>
-                 *
-                 * @return The toPosX.
-                 */
+                
                 float getToPosX();
 
-                /**
-                 * <pre>
-                 * 移动到位置 Y
-                 * </pre>
-                 *
-                 * <code>float toPosY = 4;</code>
-                 *
-                 * @return The toPosY.
-                 */
+                
                 float getToPosY();
 
-                /**
-                 * <pre>
-                 * 启程时间戳
-                 * </pre>
-                 *
-                 * <code>uint64 startTime = 5;</code>
-                 *
-                 * @return The startTime.
-                 */
+                
                 long getStartTime();
             }
 
-            /**
-             * <pre>
-             * 移动状态
-             * </pre>
-             * <p>
-             * Protobuf type {@code msg.WhoElseIsHereResult.UserInfo.MoveState}
-             */
+            
             public static final class MoveState extends
                 com.google.protobuf.GeneratedMessageV3 implements
                 // @@protoc_insertion_point(message_implements:msg.WhoElseIsHereResult.UserInfo.MoveState)
@@ -2724,15 +2250,7 @@ public final class GameMsgProtocol {
                 public static final int FROMPOSX_FIELD_NUMBER = 1;
                 private float fromPosX_;
 
-                /**
-                 * <pre>
-                 * 起始位置 X
-                 * </pre>
-                 *
-                 * <code>float fromPosX = 1;</code>
-                 *
-                 * @return The fromPosX.
-                 */
+                
                 public float getFromPosX() {
                     return fromPosX_;
                 }
@@ -2740,15 +2258,7 @@ public final class GameMsgProtocol {
                 public static final int FROMPOSY_FIELD_NUMBER = 2;
                 private float fromPosY_;
 
-                /**
-                 * <pre>
-                 * 起始位置 Y
-                 * </pre>
-                 *
-                 * <code>float fromPosY = 2;</code>
-                 *
-                 * @return The fromPosY.
-                 */
+                
                 public float getFromPosY() {
                     return fromPosY_;
                 }
@@ -2756,15 +2266,7 @@ public final class GameMsgProtocol {
                 public static final int TOPOSX_FIELD_NUMBER = 3;
                 private float toPosX_;
 
-                /**
-                 * <pre>
-                 * 移动到位置 X
-                 * </pre>
-                 *
-                 * <code>float toPosX = 3;</code>
-                 *
-                 * @return The toPosX.
-                 */
+                
                 public float getToPosX() {
                     return toPosX_;
                 }
@@ -2772,15 +2274,7 @@ public final class GameMsgProtocol {
                 public static final int TOPOSY_FIELD_NUMBER = 4;
                 private float toPosY_;
 
-                /**
-                 * <pre>
-                 * 移动到位置 Y
-                 * </pre>
-                 *
-                 * <code>float toPosY = 4;</code>
-                 *
-                 * @return The toPosY.
-                 */
+                
                 public float getToPosY() {
                     return toPosY_;
                 }
@@ -2788,15 +2282,7 @@ public final class GameMsgProtocol {
                 public static final int STARTTIME_FIELD_NUMBER = 5;
                 private long startTime_;
 
-                /**
-                 * <pre>
-                 * 启程时间戳
-                 * </pre>
-                 *
-                 * <code>uint64 startTime = 5;</code>
-                 *
-                 * @return The startTime.
-                 */
+                
                 public long getStartTime() {
                     return startTime_;
                 }
@@ -3027,13 +2513,7 @@ public final class GameMsgProtocol {
                     return builder;
                 }
 
-                /**
-                 * <pre>
-                 * 移动状态
-                 * </pre>
-                 * <p>
-                 * Protobuf type {@code msg.WhoElseIsHereResult.UserInfo.MoveState}
-                 */
+                
                 public static final class Builder extends
                     com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
                     // @@protoc_insertion_point(builder_implements:msg.WhoElseIsHereResult.UserInfo.MoveState)
@@ -3213,29 +2693,12 @@ public final class GameMsgProtocol {
 
                     private float fromPosX_;
 
-                    /**
-                     * <pre>
-                     * 起始位置 X
-                     * </pre>
-                     *
-                     * <code>float fromPosX = 1;</code>
-                     *
-                     * @return The fromPosX.
-                     */
+                    
                     public float getFromPosX() {
                         return fromPosX_;
                     }
 
-                    /**
-                     * <pre>
-                     * 起始位置 X
-                     * </pre>
-                     *
-                     * <code>float fromPosX = 1;</code>
-                     *
-                     * @param value The fromPosX to set.
-                     * @return This builder for chaining.
-                     */
+                    
                     public Builder setFromPosX(float value) {
 
                         fromPosX_ = value;
@@ -3243,15 +2706,7 @@ public final class GameMsgProtocol {
                         return this;
                     }
 
-                    /**
-                     * <pre>
-                     * 起始位置 X
-                     * </pre>
-                     *
-                     * <code>float fromPosX = 1;</code>
-                     *
-                     * @return This builder for chaining.
-                     */
+                    
                     public Builder clearFromPosX() {
 
                         fromPosX_ = 0F;
@@ -3261,29 +2716,12 @@ public final class GameMsgProtocol {
 
                     private float fromPosY_;
 
-                    /**
-                     * <pre>
-                     * 起始位置 Y
-                     * </pre>
-                     *
-                     * <code>float fromPosY = 2;</code>
-                     *
-                     * @return The fromPosY.
-                     */
+                    
                     public float getFromPosY() {
                         return fromPosY_;
                     }
 
-                    /**
-                     * <pre>
-                     * 起始位置 Y
-                     * </pre>
-                     *
-                     * <code>float fromPosY = 2;</code>
-                     *
-                     * @param value The fromPosY to set.
-                     * @return This builder for chaining.
-                     */
+                    
                     public Builder setFromPosY(float value) {
 
                         fromPosY_ = value;
@@ -3291,15 +2729,7 @@ public final class GameMsgProtocol {
                         return this;
                     }
 
-                    /**
-                     * <pre>
-                     * 起始位置 Y
-                     * </pre>
-                     *
-                     * <code>float fromPosY = 2;</code>
-                     *
-                     * @return This builder for chaining.
-                     */
+                    
                     public Builder clearFromPosY() {
 
                         fromPosY_ = 0F;
@@ -3309,29 +2739,12 @@ public final class GameMsgProtocol {
 
                     private float toPosX_;
 
-                    /**
-                     * <pre>
-                     * 移动到位置 X
-                     * </pre>
-                     *
-                     * <code>float toPosX = 3;</code>
-                     *
-                     * @return The toPosX.
-                     */
+                    
                     public float getToPosX() {
                         return toPosX_;
                     }
 
-                    /**
-                     * <pre>
-                     * 移动到位置 X
-                     * </pre>
-                     *
-                     * <code>float toPosX = 3;</code>
-                     *
-                     * @param value The toPosX to set.
-                     * @return This builder for chaining.
-                     */
+                    
                     public Builder setToPosX(float value) {
 
                         toPosX_ = value;
@@ -3339,15 +2752,7 @@ public final class GameMsgProtocol {
                         return this;
                     }
 
-                    /**
-                     * <pre>
-                     * 移动到位置 X
-                     * </pre>
-                     *
-                     * <code>float toPosX = 3;</code>
-                     *
-                     * @return This builder for chaining.
-                     */
+                    
                     public Builder clearToPosX() {
 
                         toPosX_ = 0F;
@@ -3357,29 +2762,12 @@ public final class GameMsgProtocol {
 
                     private float toPosY_;
 
-                    /**
-                     * <pre>
-                     * 移动到位置 Y
-                     * </pre>
-                     *
-                     * <code>float toPosY = 4;</code>
-                     *
-                     * @return The toPosY.
-                     */
+                    
                     public float getToPosY() {
                         return toPosY_;
                     }
 
-                    /**
-                     * <pre>
-                     * 移动到位置 Y
-                     * </pre>
-                     *
-                     * <code>float toPosY = 4;</code>
-                     *
-                     * @param value The toPosY to set.
-                     * @return This builder for chaining.
-                     */
+                    
                     public Builder setToPosY(float value) {
 
                         toPosY_ = value;
@@ -3387,15 +2775,7 @@ public final class GameMsgProtocol {
                         return this;
                     }
 
-                    /**
-                     * <pre>
-                     * 移动到位置 Y
-                     * </pre>
-                     *
-                     * <code>float toPosY = 4;</code>
-                     *
-                     * @return This builder for chaining.
-                     */
+                    
                     public Builder clearToPosY() {
 
                         toPosY_ = 0F;
@@ -3405,29 +2785,12 @@ public final class GameMsgProtocol {
 
                     private long startTime_;
 
-                    /**
-                     * <pre>
-                     * 启程时间戳
-                     * </pre>
-                     *
-                     * <code>uint64 startTime = 5;</code>
-                     *
-                     * @return The startTime.
-                     */
+                    
                     public long getStartTime() {
                         return startTime_;
                     }
 
-                    /**
-                     * <pre>
-                     * 启程时间戳
-                     * </pre>
-                     *
-                     * <code>uint64 startTime = 5;</code>
-                     *
-                     * @param value The startTime to set.
-                     * @return This builder for chaining.
-                     */
+                    
                     public Builder setStartTime(long value) {
 
                         startTime_ = value;
@@ -3435,15 +2798,7 @@ public final class GameMsgProtocol {
                         return this;
                     }
 
-                    /**
-                     * <pre>
-                     * 启程时间戳
-                     * </pre>
-                     *
-                     * <code>uint64 startTime = 5;</code>
-                     *
-                     * @return This builder for chaining.
-                     */
+                    
                     public Builder clearStartTime() {
 
                         startTime_ = 0L;
@@ -3508,15 +2863,7 @@ public final class GameMsgProtocol {
             public static final int USERID_FIELD_NUMBER = 1;
             private int userId_;
 
-            /**
-             * <pre>
-             * 用户 Id
-             * </pre>
-             *
-             * <code>uint32 userId = 1;</code>
-             *
-             * @return The userId.
-             */
+            
             public int getUserId() {
                 return userId_;
             }
@@ -3524,15 +2871,7 @@ public final class GameMsgProtocol {
             public static final int USERNAME_FIELD_NUMBER = 2;
             private volatile java.lang.Object userName_;
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @return The userName.
-             */
+            
             public java.lang.String getUserName() {
                 java.lang.Object ref = userName_;
                 if (ref instanceof java.lang.String) {
@@ -3546,15 +2885,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @return The bytes for userName.
-             */
+            
             public com.google.protobuf.ByteString
             getUserNameBytes() {
                 java.lang.Object ref = userName_;
@@ -3572,15 +2903,7 @@ public final class GameMsgProtocol {
             public static final int HEROAVATAR_FIELD_NUMBER = 3;
             private volatile java.lang.Object heroAvatar_;
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @return The heroAvatar.
-             */
+            
             public java.lang.String getHeroAvatar() {
                 java.lang.Object ref = heroAvatar_;
                 if (ref instanceof java.lang.String) {
@@ -3594,15 +2917,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @return The bytes for heroAvatar.
-             */
+            
             public com.google.protobuf.ByteString
             getHeroAvatarBytes() {
                 java.lang.Object ref = heroAvatar_;
@@ -3620,39 +2935,17 @@ public final class GameMsgProtocol {
             public static final int MOVESTATE_FIELD_NUMBER = 4;
             private org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState moveState_;
 
-            /**
-             * <pre>
-             * 移动状态
-             * </pre>
-             *
-             * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-             *
-             * @return Whether the moveState field is set.
-             */
+            
             public boolean hasMoveState() {
                 return moveState_ != null;
             }
 
-            /**
-             * <pre>
-             * 移动状态
-             * </pre>
-             *
-             * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-             *
-             * @return The moveState.
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState getMoveState() {
                 return moveState_ == null ? org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState.getDefaultInstance() : moveState_;
             }
 
-            /**
-             * <pre>
-             * 移动状态
-             * </pre>
-             *
-             * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveStateOrBuilder getMoveStateOrBuilder() {
                 return getMoveState();
             }
@@ -3866,13 +3159,7 @@ public final class GameMsgProtocol {
                 return builder;
             }
 
-            /**
-             * <pre>
-             * 用户信息
-             * </pre>
-             * <p>
-             * Protobuf type {@code msg.WhoElseIsHereResult.UserInfo}
-             */
+            
             public static final class Builder extends
                 com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
                 // @@protoc_insertion_point(builder_implements:msg.WhoElseIsHereResult.UserInfo)
@@ -4056,29 +3343,12 @@ public final class GameMsgProtocol {
 
                 private int userId_;
 
-                /**
-                 * <pre>
-                 * 用户 Id
-                 * </pre>
-                 *
-                 * <code>uint32 userId = 1;</code>
-                 *
-                 * @return The userId.
-                 */
+                
                 public int getUserId() {
                     return userId_;
                 }
 
-                /**
-                 * <pre>
-                 * 用户 Id
-                 * </pre>
-                 *
-                 * <code>uint32 userId = 1;</code>
-                 *
-                 * @param value The userId to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setUserId(int value) {
 
                     userId_ = value;
@@ -4086,15 +3356,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 用户 Id
-                 * </pre>
-                 *
-                 * <code>uint32 userId = 1;</code>
-                 *
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder clearUserId() {
 
                     userId_ = 0;
@@ -4104,15 +3366,7 @@ public final class GameMsgProtocol {
 
                 private java.lang.Object userName_ = "";
 
-                /**
-                 * <pre>
-                 * 用户名称
-                 * </pre>
-                 *
-                 * <code>string userName = 2;</code>
-                 *
-                 * @return The userName.
-                 */
+                
                 public java.lang.String getUserName() {
                     java.lang.Object ref = userName_;
                     if (!(ref instanceof java.lang.String)) {
@@ -4126,15 +3380,7 @@ public final class GameMsgProtocol {
                     }
                 }
 
-                /**
-                 * <pre>
-                 * 用户名称
-                 * </pre>
-                 *
-                 * <code>string userName = 2;</code>
-                 *
-                 * @return The bytes for userName.
-                 */
+                
                 public com.google.protobuf.ByteString
                 getUserNameBytes() {
                     java.lang.Object ref = userName_;
@@ -4149,16 +3395,7 @@ public final class GameMsgProtocol {
                     }
                 }
 
-                /**
-                 * <pre>
-                 * 用户名称
-                 * </pre>
-                 *
-                 * <code>string userName = 2;</code>
-                 *
-                 * @param value The userName to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setUserName(
                     java.lang.String value) {
                     if (value == null) {
@@ -4170,15 +3407,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 用户名称
-                 * </pre>
-                 *
-                 * <code>string userName = 2;</code>
-                 *
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder clearUserName() {
 
                     userName_ = getDefaultInstance().getUserName();
@@ -4186,16 +3415,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 用户名称
-                 * </pre>
-                 *
-                 * <code>string userName = 2;</code>
-                 *
-                 * @param value The bytes for userName to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setUserNameBytes(
                     com.google.protobuf.ByteString value) {
                     if (value == null) {
@@ -4210,15 +3430,7 @@ public final class GameMsgProtocol {
 
                 private java.lang.Object heroAvatar_ = "";
 
-                /**
-                 * <pre>
-                 * 英雄形象
-                 * </pre>
-                 *
-                 * <code>string heroAvatar = 3;</code>
-                 *
-                 * @return The heroAvatar.
-                 */
+                
                 public java.lang.String getHeroAvatar() {
                     java.lang.Object ref = heroAvatar_;
                     if (!(ref instanceof java.lang.String)) {
@@ -4232,15 +3444,7 @@ public final class GameMsgProtocol {
                     }
                 }
 
-                /**
-                 * <pre>
-                 * 英雄形象
-                 * </pre>
-                 *
-                 * <code>string heroAvatar = 3;</code>
-                 *
-                 * @return The bytes for heroAvatar.
-                 */
+                
                 public com.google.protobuf.ByteString
                 getHeroAvatarBytes() {
                     java.lang.Object ref = heroAvatar_;
@@ -4255,16 +3459,7 @@ public final class GameMsgProtocol {
                     }
                 }
 
-                /**
-                 * <pre>
-                 * 英雄形象
-                 * </pre>
-                 *
-                 * <code>string heroAvatar = 3;</code>
-                 *
-                 * @param value The heroAvatar to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setHeroAvatar(
                     java.lang.String value) {
                     if (value == null) {
@@ -4276,15 +3471,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 英雄形象
-                 * </pre>
-                 *
-                 * <code>string heroAvatar = 3;</code>
-                 *
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder clearHeroAvatar() {
 
                     heroAvatar_ = getDefaultInstance().getHeroAvatar();
@@ -4292,16 +3479,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 英雄形象
-                 * </pre>
-                 *
-                 * <code>string heroAvatar = 3;</code>
-                 *
-                 * @param value The bytes for heroAvatar to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setHeroAvatarBytes(
                     com.google.protobuf.ByteString value) {
                     if (value == null) {
@@ -4318,28 +3496,12 @@ public final class GameMsgProtocol {
                 private com.google.protobuf.SingleFieldBuilderV3<
                     org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState.Builder, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveStateOrBuilder> moveStateBuilder_;
 
-                /**
-                 * <pre>
-                 * 移动状态
-                 * </pre>
-                 *
-                 * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-                 *
-                 * @return Whether the moveState field is set.
-                 */
+                
                 public boolean hasMoveState() {
                     return moveStateBuilder_ != null || moveState_ != null;
                 }
 
-                /**
-                 * <pre>
-                 * 移动状态
-                 * </pre>
-                 *
-                 * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-                 *
-                 * @return The moveState.
-                 */
+                
                 public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState getMoveState() {
                     if (moveStateBuilder_ == null) {
                         return moveState_ == null ? org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState.getDefaultInstance() : moveState_;
@@ -4348,13 +3510,7 @@ public final class GameMsgProtocol {
                     }
                 }
 
-                /**
-                 * <pre>
-                 * 移动状态
-                 * </pre>
-                 *
-                 * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-                 */
+                
                 public Builder setMoveState(org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState value) {
                     if (moveStateBuilder_ == null) {
                         if (value == null) {
@@ -4369,13 +3525,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 移动状态
-                 * </pre>
-                 *
-                 * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-                 */
+                
                 public Builder setMoveState(
                     org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState.Builder builderForValue) {
                     if (moveStateBuilder_ == null) {
@@ -4388,13 +3538,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 移动状态
-                 * </pre>
-                 *
-                 * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-                 */
+                
                 public Builder mergeMoveState(org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState value) {
                     if (moveStateBuilder_ == null) {
                         if (moveState_ != null) {
@@ -4411,13 +3555,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 移动状态
-                 * </pre>
-                 *
-                 * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-                 */
+                
                 public Builder clearMoveState() {
                     if (moveStateBuilder_ == null) {
                         moveState_ = null;
@@ -4430,26 +3568,14 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 移动状态
-                 * </pre>
-                 *
-                 * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-                 */
+                
                 public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState.Builder getMoveStateBuilder() {
 
                     onChanged();
                     return getMoveStateFieldBuilder().getBuilder();
                 }
 
-                /**
-                 * <pre>
-                 * 移动状态
-                 * </pre>
-                 *
-                 * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-                 */
+                
                 public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveStateOrBuilder getMoveStateOrBuilder() {
                     if (moveStateBuilder_ != null) {
                         return moveStateBuilder_.getMessageOrBuilder();
@@ -4459,13 +3585,7 @@ public final class GameMsgProtocol {
                     }
                 }
 
-                /**
-                 * <pre>
-                 * 移动状态
-                 * </pre>
-                 *
-                 * <code>.msg.WhoElseIsHereResult.UserInfo.MoveState moveState = 4;</code>
-                 */
+                
                 private com.google.protobuf.SingleFieldBuilderV3<
                     org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveState.Builder, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.MoveStateOrBuilder>
                 getMoveStateFieldBuilder() {
@@ -4537,58 +3657,28 @@ public final class GameMsgProtocol {
         public static final int USERINFO_FIELD_NUMBER = 1;
         private java.util.List<org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo> userInfo_;
 
-        /**
-         * <pre>
-         * 用户信息数组
-         * </pre>
-         *
-         * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-         */
+        
         public java.util.List<org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo> getUserInfoList() {
             return userInfo_;
         }
 
-        /**
-         * <pre>
-         * 用户信息数组
-         * </pre>
-         *
-         * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-         */
+        
         public java.util.List<? extends org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfoOrBuilder>
         getUserInfoOrBuilderList() {
             return userInfo_;
         }
 
-        /**
-         * <pre>
-         * 用户信息数组
-         * </pre>
-         *
-         * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-         */
+        
         public int getUserInfoCount() {
             return userInfo_.size();
         }
 
-        /**
-         * <pre>
-         * 用户信息数组
-         * </pre>
-         *
-         * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-         */
+        
         public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo getUserInfo(int index) {
             return userInfo_.get(index);
         }
 
-        /**
-         * <pre>
-         * 用户信息数组
-         * </pre>
-         *
-         * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-         */
+        
         public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfoOrBuilder getUserInfoOrBuilder(
             int index) {
             return userInfo_.get(index);
@@ -4769,13 +3859,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.WhoElseIsHereResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.WhoElseIsHereResult)
@@ -4981,13 +4065,7 @@ public final class GameMsgProtocol {
             private com.google.protobuf.RepeatedFieldBuilderV3<
                 org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.Builder, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfoOrBuilder> userInfoBuilder_;
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public java.util.List<org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo> getUserInfoList() {
                 if (userInfoBuilder_ == null) {
                     return java.util.Collections.unmodifiableList(userInfo_);
@@ -4996,13 +4074,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public int getUserInfoCount() {
                 if (userInfoBuilder_ == null) {
                     return userInfo_.size();
@@ -5011,13 +4083,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo getUserInfo(int index) {
                 if (userInfoBuilder_ == null) {
                     return userInfo_.get(index);
@@ -5026,13 +4092,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public Builder setUserInfo(
                 int index, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo value) {
                 if (userInfoBuilder_ == null) {
@@ -5048,13 +4108,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public Builder setUserInfo(
                 int index, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.Builder builderForValue) {
                 if (userInfoBuilder_ == null) {
@@ -5067,13 +4121,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public Builder addUserInfo(org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo value) {
                 if (userInfoBuilder_ == null) {
                     if (value == null) {
@@ -5088,13 +4136,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public Builder addUserInfo(
                 int index, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo value) {
                 if (userInfoBuilder_ == null) {
@@ -5110,13 +4152,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public Builder addUserInfo(
                 org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.Builder builderForValue) {
                 if (userInfoBuilder_ == null) {
@@ -5129,13 +4165,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public Builder addUserInfo(
                 int index, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.Builder builderForValue) {
                 if (userInfoBuilder_ == null) {
@@ -5148,13 +4178,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public Builder addAllUserInfo(
                 java.lang.Iterable<? extends org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo> values) {
                 if (userInfoBuilder_ == null) {
@@ -5168,13 +4192,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public Builder clearUserInfo() {
                 if (userInfoBuilder_ == null) {
                     userInfo_ = java.util.Collections.emptyList();
@@ -5186,13 +4204,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public Builder removeUserInfo(int index) {
                 if (userInfoBuilder_ == null) {
                     ensureUserInfoIsMutable();
@@ -5204,25 +4216,13 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.Builder getUserInfoBuilder(
                 int index) {
                 return getUserInfoFieldBuilder().getBuilder(index);
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfoOrBuilder getUserInfoOrBuilder(
                 int index) {
                 if (userInfoBuilder_ == null) {
@@ -5232,13 +4232,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public java.util.List<? extends org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfoOrBuilder>
             getUserInfoOrBuilderList() {
                 if (userInfoBuilder_ != null) {
@@ -5248,38 +4242,20 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.Builder addUserInfoBuilder() {
                 return getUserInfoFieldBuilder().addBuilder(
                     org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.getDefaultInstance());
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.Builder addUserInfoBuilder(
                 int index) {
                 return getUserInfoFieldBuilder().addBuilder(
                     index, org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.getDefaultInstance());
             }
 
-            /**
-             * <pre>
-             * 用户信息数组
-             * </pre>
-             *
-             * <code>repeated .msg.WhoElseIsHereResult.UserInfo userInfo = 1;</code>
-             */
+            
             public java.util.List<org.tinygame.herostory.msg.GameMsgProtocol.WhoElseIsHereResult.UserInfo.Builder>
             getUserInfoBuilderList() {
                 return getUserInfoFieldBuilder().getBuilderList();
@@ -5358,65 +4334,20 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserMoveToCmd)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         *
-         * XXX 注意: 用户移动指令中没有用户 Id,
-         * 这是为什么?
-         *
-         * 起始位置 X
-         * </pre>
-         *
-         * <code>float moveFromPosX = 1;</code>
-         *
-         * @return The moveFromPosX.
-         */
+        
         float getMoveFromPosX();
 
-        /**
-         * <pre>
-         * 起始位置 Y
-         * </pre>
-         *
-         * <code>float moveFromPosY = 2;</code>
-         *
-         * @return The moveFromPosY.
-         */
+        
         float getMoveFromPosY();
 
-        /**
-         * <pre>
-         * 移动到位置 X
-         * </pre>
-         *
-         * <code>float moveToPosX = 3;</code>
-         *
-         * @return The moveToPosX.
-         */
+        
         float getMoveToPosX();
 
-        /**
-         * <pre>
-         * 移动到位置 Y
-         * </pre>
-         *
-         * <code>float moveToPosY = 4;</code>
-         *
-         * @return The moveToPosY.
-         */
+        
         float getMoveToPosY();
     }
 
-    /**
-     * <pre>
-     *
-     * 用户移动
-     * /////////////////////////////////////////////////////////////////////
-     * 指令
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserMoveToCmd}
-     */
+    
     public static final class UserMoveToCmd extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserMoveToCmd)
@@ -5518,19 +4449,7 @@ public final class GameMsgProtocol {
         public static final int MOVEFROMPOSX_FIELD_NUMBER = 1;
         private float moveFromPosX_;
 
-        /**
-         * <pre>
-         *
-         * XXX 注意: 用户移动指令中没有用户 Id,
-         * 这是为什么?
-         *
-         * 起始位置 X
-         * </pre>
-         *
-         * <code>float moveFromPosX = 1;</code>
-         *
-         * @return The moveFromPosX.
-         */
+        
         public float getMoveFromPosX() {
             return moveFromPosX_;
         }
@@ -5538,15 +4457,7 @@ public final class GameMsgProtocol {
         public static final int MOVEFROMPOSY_FIELD_NUMBER = 2;
         private float moveFromPosY_;
 
-        /**
-         * <pre>
-         * 起始位置 Y
-         * </pre>
-         *
-         * <code>float moveFromPosY = 2;</code>
-         *
-         * @return The moveFromPosY.
-         */
+        
         public float getMoveFromPosY() {
             return moveFromPosY_;
         }
@@ -5554,15 +4465,7 @@ public final class GameMsgProtocol {
         public static final int MOVETOPOSX_FIELD_NUMBER = 3;
         private float moveToPosX_;
 
-        /**
-         * <pre>
-         * 移动到位置 X
-         * </pre>
-         *
-         * <code>float moveToPosX = 3;</code>
-         *
-         * @return The moveToPosX.
-         */
+        
         public float getMoveToPosX() {
             return moveToPosX_;
         }
@@ -5570,15 +4473,7 @@ public final class GameMsgProtocol {
         public static final int MOVETOPOSY_FIELD_NUMBER = 4;
         private float moveToPosY_;
 
-        /**
-         * <pre>
-         * 移动到位置 Y
-         * </pre>
-         *
-         * <code>float moveToPosY = 4;</code>
-         *
-         * @return The moveToPosY.
-         */
+        
         public float getMoveToPosY() {
             return moveToPosY_;
         }
@@ -5797,16 +4692,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         *
-         * 用户移动
-         * /////////////////////////////////////////////////////////////////////
-         * 指令
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserMoveToCmd}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserMoveToCmd)
@@ -5979,37 +4865,12 @@ public final class GameMsgProtocol {
 
             private float moveFromPosX_;
 
-            /**
-             * <pre>
-             *
-             * XXX 注意: 用户移动指令中没有用户 Id,
-             * 这是为什么?
-             *
-             * 起始位置 X
-             * </pre>
-             *
-             * <code>float moveFromPosX = 1;</code>
-             *
-             * @return The moveFromPosX.
-             */
+            
             public float getMoveFromPosX() {
                 return moveFromPosX_;
             }
 
-            /**
-             * <pre>
-             *
-             * XXX 注意: 用户移动指令中没有用户 Id,
-             * 这是为什么?
-             *
-             * 起始位置 X
-             * </pre>
-             *
-             * <code>float moveFromPosX = 1;</code>
-             *
-             * @param value The moveFromPosX to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setMoveFromPosX(float value) {
 
                 moveFromPosX_ = value;
@@ -6017,19 +4878,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             *
-             * XXX 注意: 用户移动指令中没有用户 Id,
-             * 这是为什么?
-             *
-             * 起始位置 X
-             * </pre>
-             *
-             * <code>float moveFromPosX = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearMoveFromPosX() {
 
                 moveFromPosX_ = 0F;
@@ -6039,29 +4888,12 @@ public final class GameMsgProtocol {
 
             private float moveFromPosY_;
 
-            /**
-             * <pre>
-             * 起始位置 Y
-             * </pre>
-             *
-             * <code>float moveFromPosY = 2;</code>
-             *
-             * @return The moveFromPosY.
-             */
+            
             public float getMoveFromPosY() {
                 return moveFromPosY_;
             }
 
-            /**
-             * <pre>
-             * 起始位置 Y
-             * </pre>
-             *
-             * <code>float moveFromPosY = 2;</code>
-             *
-             * @param value The moveFromPosY to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setMoveFromPosY(float value) {
 
                 moveFromPosY_ = value;
@@ -6069,15 +4901,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 起始位置 Y
-             * </pre>
-             *
-             * <code>float moveFromPosY = 2;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearMoveFromPosY() {
 
                 moveFromPosY_ = 0F;
@@ -6087,29 +4911,12 @@ public final class GameMsgProtocol {
 
             private float moveToPosX_;
 
-            /**
-             * <pre>
-             * 移动到位置 X
-             * </pre>
-             *
-             * <code>float moveToPosX = 3;</code>
-             *
-             * @return The moveToPosX.
-             */
+            
             public float getMoveToPosX() {
                 return moveToPosX_;
             }
 
-            /**
-             * <pre>
-             * 移动到位置 X
-             * </pre>
-             *
-             * <code>float moveToPosX = 3;</code>
-             *
-             * @param value The moveToPosX to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setMoveToPosX(float value) {
 
                 moveToPosX_ = value;
@@ -6117,15 +4924,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 移动到位置 X
-             * </pre>
-             *
-             * <code>float moveToPosX = 3;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearMoveToPosX() {
 
                 moveToPosX_ = 0F;
@@ -6135,29 +4934,12 @@ public final class GameMsgProtocol {
 
             private float moveToPosY_;
 
-            /**
-             * <pre>
-             * 移动到位置 Y
-             * </pre>
-             *
-             * <code>float moveToPosY = 4;</code>
-             *
-             * @return The moveToPosY.
-             */
+            
             public float getMoveToPosY() {
                 return moveToPosY_;
             }
 
-            /**
-             * <pre>
-             * 移动到位置 Y
-             * </pre>
-             *
-             * <code>float moveToPosY = 4;</code>
-             *
-             * @param value The moveToPosY to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setMoveToPosY(float value) {
 
                 moveToPosY_ = value;
@@ -6165,15 +4947,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 移动到位置 Y
-             * </pre>
-             *
-             * <code>float moveToPosY = 4;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearMoveToPosY() {
 
                 moveToPosY_ = 0F;
@@ -6239,80 +5013,26 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserMoveToResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 移动用户 Id
-         * </pre>
-         *
-         * <code>uint32 moveUserId = 1;</code>
-         *
-         * @return The moveUserId.
-         */
+        
         int getMoveUserId();
 
-        /**
-         * <pre>
-         * 起始位置 X
-         * </pre>
-         *
-         * <code>float moveFromPosX = 2;</code>
-         *
-         * @return The moveFromPosX.
-         */
+        
         float getMoveFromPosX();
 
-        /**
-         * <pre>
-         * 起始位置 Y
-         * </pre>
-         *
-         * <code>float moveFromPosY = 3;</code>
-         *
-         * @return The moveFromPosY.
-         */
+        
         float getMoveFromPosY();
 
-        /**
-         * <pre>
-         * 移动到位置 X
-         * </pre>
-         *
-         * <code>float moveToPosX = 4;</code>
-         *
-         * @return The moveToPosX.
-         */
+        
         float getMoveToPosX();
 
-        /**
-         * <pre>
-         * 移动到位置 Y
-         * </pre>
-         *
-         * <code>float moveToPosY = 5;</code>
-         *
-         * @return The moveToPosY.
-         */
+        
         float getMoveToPosY();
 
-        /**
-         * <pre>
-         * 启程时间戳
-         * </pre>
-         *
-         * <code>uint64 moveStartTime = 6;</code>
-         *
-         * @return The moveStartTime.
-         */
+        
         long getMoveStartTime();
     }
 
-    /**
-     * <pre>
-     * 结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserMoveToResult}
-     */
+    
     public static final class UserMoveToResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserMoveToResult)
@@ -6424,15 +5144,7 @@ public final class GameMsgProtocol {
         public static final int MOVEUSERID_FIELD_NUMBER = 1;
         private int moveUserId_;
 
-        /**
-         * <pre>
-         * 移动用户 Id
-         * </pre>
-         *
-         * <code>uint32 moveUserId = 1;</code>
-         *
-         * @return The moveUserId.
-         */
+        
         public int getMoveUserId() {
             return moveUserId_;
         }
@@ -6440,15 +5152,7 @@ public final class GameMsgProtocol {
         public static final int MOVEFROMPOSX_FIELD_NUMBER = 2;
         private float moveFromPosX_;
 
-        /**
-         * <pre>
-         * 起始位置 X
-         * </pre>
-         *
-         * <code>float moveFromPosX = 2;</code>
-         *
-         * @return The moveFromPosX.
-         */
+        
         public float getMoveFromPosX() {
             return moveFromPosX_;
         }
@@ -6456,15 +5160,7 @@ public final class GameMsgProtocol {
         public static final int MOVEFROMPOSY_FIELD_NUMBER = 3;
         private float moveFromPosY_;
 
-        /**
-         * <pre>
-         * 起始位置 Y
-         * </pre>
-         *
-         * <code>float moveFromPosY = 3;</code>
-         *
-         * @return The moveFromPosY.
-         */
+        
         public float getMoveFromPosY() {
             return moveFromPosY_;
         }
@@ -6472,15 +5168,7 @@ public final class GameMsgProtocol {
         public static final int MOVETOPOSX_FIELD_NUMBER = 4;
         private float moveToPosX_;
 
-        /**
-         * <pre>
-         * 移动到位置 X
-         * </pre>
-         *
-         * <code>float moveToPosX = 4;</code>
-         *
-         * @return The moveToPosX.
-         */
+        
         public float getMoveToPosX() {
             return moveToPosX_;
         }
@@ -6488,15 +5176,7 @@ public final class GameMsgProtocol {
         public static final int MOVETOPOSY_FIELD_NUMBER = 5;
         private float moveToPosY_;
 
-        /**
-         * <pre>
-         * 移动到位置 Y
-         * </pre>
-         *
-         * <code>float moveToPosY = 5;</code>
-         *
-         * @return The moveToPosY.
-         */
+        
         public float getMoveToPosY() {
             return moveToPosY_;
         }
@@ -6504,15 +5184,7 @@ public final class GameMsgProtocol {
         public static final int MOVESTARTTIME_FIELD_NUMBER = 6;
         private long moveStartTime_;
 
-        /**
-         * <pre>
-         * 启程时间戳
-         * </pre>
-         *
-         * <code>uint64 moveStartTime = 6;</code>
-         *
-         * @return The moveStartTime.
-         */
+        
         public long getMoveStartTime() {
             return moveStartTime_;
         }
@@ -6754,13 +5426,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserMoveToResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserMoveToResult)
@@ -6946,29 +5612,12 @@ public final class GameMsgProtocol {
 
             private int moveUserId_;
 
-            /**
-             * <pre>
-             * 移动用户 Id
-             * </pre>
-             *
-             * <code>uint32 moveUserId = 1;</code>
-             *
-             * @return The moveUserId.
-             */
+            
             public int getMoveUserId() {
                 return moveUserId_;
             }
 
-            /**
-             * <pre>
-             * 移动用户 Id
-             * </pre>
-             *
-             * <code>uint32 moveUserId = 1;</code>
-             *
-             * @param value The moveUserId to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setMoveUserId(int value) {
 
                 moveUserId_ = value;
@@ -6976,15 +5625,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 移动用户 Id
-             * </pre>
-             *
-             * <code>uint32 moveUserId = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearMoveUserId() {
 
                 moveUserId_ = 0;
@@ -6994,29 +5635,12 @@ public final class GameMsgProtocol {
 
             private float moveFromPosX_;
 
-            /**
-             * <pre>
-             * 起始位置 X
-             * </pre>
-             *
-             * <code>float moveFromPosX = 2;</code>
-             *
-             * @return The moveFromPosX.
-             */
+            
             public float getMoveFromPosX() {
                 return moveFromPosX_;
             }
 
-            /**
-             * <pre>
-             * 起始位置 X
-             * </pre>
-             *
-             * <code>float moveFromPosX = 2;</code>
-             *
-             * @param value The moveFromPosX to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setMoveFromPosX(float value) {
 
                 moveFromPosX_ = value;
@@ -7024,15 +5648,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 起始位置 X
-             * </pre>
-             *
-             * <code>float moveFromPosX = 2;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearMoveFromPosX() {
 
                 moveFromPosX_ = 0F;
@@ -7042,29 +5658,12 @@ public final class GameMsgProtocol {
 
             private float moveFromPosY_;
 
-            /**
-             * <pre>
-             * 起始位置 Y
-             * </pre>
-             *
-             * <code>float moveFromPosY = 3;</code>
-             *
-             * @return The moveFromPosY.
-             */
+            
             public float getMoveFromPosY() {
                 return moveFromPosY_;
             }
 
-            /**
-             * <pre>
-             * 起始位置 Y
-             * </pre>
-             *
-             * <code>float moveFromPosY = 3;</code>
-             *
-             * @param value The moveFromPosY to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setMoveFromPosY(float value) {
 
                 moveFromPosY_ = value;
@@ -7072,15 +5671,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 起始位置 Y
-             * </pre>
-             *
-             * <code>float moveFromPosY = 3;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearMoveFromPosY() {
 
                 moveFromPosY_ = 0F;
@@ -7090,29 +5681,12 @@ public final class GameMsgProtocol {
 
             private float moveToPosX_;
 
-            /**
-             * <pre>
-             * 移动到位置 X
-             * </pre>
-             *
-             * <code>float moveToPosX = 4;</code>
-             *
-             * @return The moveToPosX.
-             */
+            
             public float getMoveToPosX() {
                 return moveToPosX_;
             }
 
-            /**
-             * <pre>
-             * 移动到位置 X
-             * </pre>
-             *
-             * <code>float moveToPosX = 4;</code>
-             *
-             * @param value The moveToPosX to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setMoveToPosX(float value) {
 
                 moveToPosX_ = value;
@@ -7120,15 +5694,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 移动到位置 X
-             * </pre>
-             *
-             * <code>float moveToPosX = 4;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearMoveToPosX() {
 
                 moveToPosX_ = 0F;
@@ -7138,29 +5704,12 @@ public final class GameMsgProtocol {
 
             private float moveToPosY_;
 
-            /**
-             * <pre>
-             * 移动到位置 Y
-             * </pre>
-             *
-             * <code>float moveToPosY = 5;</code>
-             *
-             * @return The moveToPosY.
-             */
+            
             public float getMoveToPosY() {
                 return moveToPosY_;
             }
 
-            /**
-             * <pre>
-             * 移动到位置 Y
-             * </pre>
-             *
-             * <code>float moveToPosY = 5;</code>
-             *
-             * @param value The moveToPosY to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setMoveToPosY(float value) {
 
                 moveToPosY_ = value;
@@ -7168,15 +5717,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 移动到位置 Y
-             * </pre>
-             *
-             * <code>float moveToPosY = 5;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearMoveToPosY() {
 
                 moveToPosY_ = 0F;
@@ -7186,29 +5727,12 @@ public final class GameMsgProtocol {
 
             private long moveStartTime_;
 
-            /**
-             * <pre>
-             * 启程时间戳
-             * </pre>
-             *
-             * <code>uint64 moveStartTime = 6;</code>
-             *
-             * @return The moveStartTime.
-             */
+            
             public long getMoveStartTime() {
                 return moveStartTime_;
             }
 
-            /**
-             * <pre>
-             * 启程时间戳
-             * </pre>
-             *
-             * <code>uint64 moveStartTime = 6;</code>
-             *
-             * @param value The moveStartTime to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setMoveStartTime(long value) {
 
                 moveStartTime_ = value;
@@ -7216,15 +5740,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 启程时间戳
-             * </pre>
-             *
-             * <code>uint64 moveStartTime = 6;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearMoveStartTime() {
 
                 moveStartTime_ = 0L;
@@ -7290,31 +5806,11 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserQuitResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 退出用户 Id
-         * </pre>
-         *
-         * <code>uint32 quitUserId = 1;</code>
-         *
-         * @return The quitUserId.
-         */
+        
         int getQuitUserId();
     }
 
-    /**
-     * <pre>
-     *
-     * 用户退场
-     * /////////////////////////////////////////////////////////////////////
-     *
-     * XXX 注意: 用户退场不需要指令, 因为是在断开服务器的时候执行
-     *
-     * 结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserQuitResult}
-     */
+    
     public static final class UserQuitResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserQuitResult)
@@ -7401,15 +5897,7 @@ public final class GameMsgProtocol {
         public static final int QUITUSERID_FIELD_NUMBER = 1;
         private int quitUserId_;
 
-        /**
-         * <pre>
-         * 退出用户 Id
-         * </pre>
-         *
-         * <code>uint32 quitUserId = 1;</code>
-         *
-         * @return The quitUserId.
-         */
+        
         public int getQuitUserId() {
             return quitUserId_;
         }
@@ -7587,19 +6075,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         *
-         * 用户退场
-         * /////////////////////////////////////////////////////////////////////
-         *
-         * XXX 注意: 用户退场不需要指令, 因为是在断开服务器的时候执行
-         *
-         * 结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserQuitResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserQuitResult)
@@ -7755,29 +6231,12 @@ public final class GameMsgProtocol {
 
             private int quitUserId_;
 
-            /**
-             * <pre>
-             * 退出用户 Id
-             * </pre>
-             *
-             * <code>uint32 quitUserId = 1;</code>
-             *
-             * @return The quitUserId.
-             */
+            
             public int getQuitUserId() {
                 return quitUserId_;
             }
 
-            /**
-             * <pre>
-             * 退出用户 Id
-             * </pre>
-             *
-             * <code>uint32 quitUserId = 1;</code>
-             *
-             * @param value The quitUserId to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setQuitUserId(int value) {
 
                 quitUserId_ = value;
@@ -7785,15 +6244,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 退出用户 Id
-             * </pre>
-             *
-             * <code>uint32 quitUserId = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearQuitUserId() {
 
                 quitUserId_ = 0;
@@ -7860,15 +6311,7 @@ public final class GameMsgProtocol {
         com.google.protobuf.MessageOrBuilder {
     }
 
-    /**
-     * <pre>
-     * 用户停驻
-     * /////////////////////////////////////////////////////////////////////
-     * 指令
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserStopCmd}
-     */
+    
     public static final class UserStopCmd extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserStopCmd)
@@ -8109,15 +6552,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 用户停驻
-         * /////////////////////////////////////////////////////////////////////
-         * 指令
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserStopCmd}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserStopCmd)
@@ -8322,47 +6757,17 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserStopResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 停驻用户 Id
-         * </pre>
-         *
-         * <code>uint32 stopUserId = 1;</code>
-         *
-         * @return The stopUserId.
-         */
+        
         int getStopUserId();
 
-        /**
-         * <pre>
-         * 停驻在位置 X
-         * </pre>
-         *
-         * <code>float stopAtPosX = 2;</code>
-         *
-         * @return The stopAtPosX.
-         */
+        
         float getStopAtPosX();
 
-        /**
-         * <pre>
-         * 停驻在位置 Y
-         * </pre>
-         *
-         * <code>float stopAtPosY = 3;</code>
-         *
-         * @return The stopAtPosY.
-         */
+        
         float getStopAtPosY();
     }
 
-    /**
-     * <pre>
-     * 结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserStopResult}
-     */
+    
     public static final class UserStopResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserStopResult)
@@ -8459,15 +6864,7 @@ public final class GameMsgProtocol {
         public static final int STOPUSERID_FIELD_NUMBER = 1;
         private int stopUserId_;
 
-        /**
-         * <pre>
-         * 停驻用户 Id
-         * </pre>
-         *
-         * <code>uint32 stopUserId = 1;</code>
-         *
-         * @return The stopUserId.
-         */
+        
         public int getStopUserId() {
             return stopUserId_;
         }
@@ -8475,15 +6872,7 @@ public final class GameMsgProtocol {
         public static final int STOPATPOSX_FIELD_NUMBER = 2;
         private float stopAtPosX_;
 
-        /**
-         * <pre>
-         * 停驻在位置 X
-         * </pre>
-         *
-         * <code>float stopAtPosX = 2;</code>
-         *
-         * @return The stopAtPosX.
-         */
+        
         public float getStopAtPosX() {
             return stopAtPosX_;
         }
@@ -8491,15 +6880,7 @@ public final class GameMsgProtocol {
         public static final int STOPATPOSY_FIELD_NUMBER = 3;
         private float stopAtPosY_;
 
-        /**
-         * <pre>
-         * 停驻在位置 Y
-         * </pre>
-         *
-         * <code>float stopAtPosY = 3;</code>
-         *
-         * @return The stopAtPosY.
-         */
+        
         public float getStopAtPosY() {
             return stopAtPosY_;
         }
@@ -8703,13 +7084,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserStopResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserStopResult)
@@ -8877,29 +7252,12 @@ public final class GameMsgProtocol {
 
             private int stopUserId_;
 
-            /**
-             * <pre>
-             * 停驻用户 Id
-             * </pre>
-             *
-             * <code>uint32 stopUserId = 1;</code>
-             *
-             * @return The stopUserId.
-             */
+            
             public int getStopUserId() {
                 return stopUserId_;
             }
 
-            /**
-             * <pre>
-             * 停驻用户 Id
-             * </pre>
-             *
-             * <code>uint32 stopUserId = 1;</code>
-             *
-             * @param value The stopUserId to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setStopUserId(int value) {
 
                 stopUserId_ = value;
@@ -8907,15 +7265,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 停驻用户 Id
-             * </pre>
-             *
-             * <code>uint32 stopUserId = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearStopUserId() {
 
                 stopUserId_ = 0;
@@ -8925,29 +7275,12 @@ public final class GameMsgProtocol {
 
             private float stopAtPosX_;
 
-            /**
-             * <pre>
-             * 停驻在位置 X
-             * </pre>
-             *
-             * <code>float stopAtPosX = 2;</code>
-             *
-             * @return The stopAtPosX.
-             */
+            
             public float getStopAtPosX() {
                 return stopAtPosX_;
             }
 
-            /**
-             * <pre>
-             * 停驻在位置 X
-             * </pre>
-             *
-             * <code>float stopAtPosX = 2;</code>
-             *
-             * @param value The stopAtPosX to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setStopAtPosX(float value) {
 
                 stopAtPosX_ = value;
@@ -8955,15 +7288,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 停驻在位置 X
-             * </pre>
-             *
-             * <code>float stopAtPosX = 2;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearStopAtPosX() {
 
                 stopAtPosX_ = 0F;
@@ -8973,29 +7298,12 @@ public final class GameMsgProtocol {
 
             private float stopAtPosY_;
 
-            /**
-             * <pre>
-             * 停驻在位置 Y
-             * </pre>
-             *
-             * <code>float stopAtPosY = 3;</code>
-             *
-             * @return The stopAtPosY.
-             */
+            
             public float getStopAtPosY() {
                 return stopAtPosY_;
             }
 
-            /**
-             * <pre>
-             * 停驻在位置 Y
-             * </pre>
-             *
-             * <code>float stopAtPosY = 3;</code>
-             *
-             * @param value The stopAtPosY to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setStopAtPosY(float value) {
 
                 stopAtPosY_ = value;
@@ -9003,15 +7311,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 停驻在位置 Y
-             * </pre>
-             *
-             * <code>float stopAtPosY = 3;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearStopAtPosY() {
 
                 stopAtPosY_ = 0F;
@@ -9077,27 +7377,11 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserAttkCmd)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 目标用户 Id
-         * </pre>
-         *
-         * <code>uint32 targetUserId = 1;</code>
-         *
-         * @return The targetUserId.
-         */
+        
         int getTargetUserId();
     }
 
-    /**
-     * <pre>
-     * 用户攻击
-     * /////////////////////////////////////////////////////////////////////
-     * 指令
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserAttkCmd}
-     */
+    
     public static final class UserAttkCmd extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserAttkCmd)
@@ -9184,15 +7468,7 @@ public final class GameMsgProtocol {
         public static final int TARGETUSERID_FIELD_NUMBER = 1;
         private int targetUserId_;
 
-        /**
-         * <pre>
-         * 目标用户 Id
-         * </pre>
-         *
-         * <code>uint32 targetUserId = 1;</code>
-         *
-         * @return The targetUserId.
-         */
+        
         public int getTargetUserId() {
             return targetUserId_;
         }
@@ -9370,15 +7646,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 用户攻击
-         * /////////////////////////////////////////////////////////////////////
-         * 指令
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserAttkCmd}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserAttkCmd)
@@ -9533,29 +7801,12 @@ public final class GameMsgProtocol {
 
             private int targetUserId_;
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 1;</code>
-             *
-             * @return The targetUserId.
-             */
+            
             public int getTargetUserId() {
                 return targetUserId_;
             }
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 1;</code>
-             *
-             * @param value The targetUserId to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setTargetUserId(int value) {
 
                 targetUserId_ = value;
@@ -9563,15 +7814,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearTargetUserId() {
 
                 targetUserId_ = 0;
@@ -9637,36 +7880,14 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserAttkResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 发动攻击的用户 Id
-         * </pre>
-         *
-         * <code>uint32 attkUserId = 1;</code>
-         *
-         * @return The attkUserId.
-         */
+        
         int getAttkUserId();
 
-        /**
-         * <pre>
-         * 目标用户 Id
-         * </pre>
-         *
-         * <code>uint32 targetUserId = 2;</code>
-         *
-         * @return The targetUserId.
-         */
+        
         int getTargetUserId();
     }
 
-    /**
-     * <pre>
-     * 结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserAttkResult}
-     */
+    
     public static final class UserAttkResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserAttkResult)
@@ -9758,15 +7979,7 @@ public final class GameMsgProtocol {
         public static final int ATTKUSERID_FIELD_NUMBER = 1;
         private int attkUserId_;
 
-        /**
-         * <pre>
-         * 发动攻击的用户 Id
-         * </pre>
-         *
-         * <code>uint32 attkUserId = 1;</code>
-         *
-         * @return The attkUserId.
-         */
+        
         public int getAttkUserId() {
             return attkUserId_;
         }
@@ -9774,15 +7987,7 @@ public final class GameMsgProtocol {
         public static final int TARGETUSERID_FIELD_NUMBER = 2;
         private int targetUserId_;
 
-        /**
-         * <pre>
-         * 目标用户 Id
-         * </pre>
-         *
-         * <code>uint32 targetUserId = 2;</code>
-         *
-         * @return The targetUserId.
-         */
+        
         public int getTargetUserId() {
             return targetUserId_;
         }
@@ -9971,13 +8176,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserAttkResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserAttkResult)
@@ -10139,29 +8338,12 @@ public final class GameMsgProtocol {
 
             private int attkUserId_;
 
-            /**
-             * <pre>
-             * 发动攻击的用户 Id
-             * </pre>
-             *
-             * <code>uint32 attkUserId = 1;</code>
-             *
-             * @return The attkUserId.
-             */
+            
             public int getAttkUserId() {
                 return attkUserId_;
             }
 
-            /**
-             * <pre>
-             * 发动攻击的用户 Id
-             * </pre>
-             *
-             * <code>uint32 attkUserId = 1;</code>
-             *
-             * @param value The attkUserId to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setAttkUserId(int value) {
 
                 attkUserId_ = value;
@@ -10169,15 +8351,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 发动攻击的用户 Id
-             * </pre>
-             *
-             * <code>uint32 attkUserId = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearAttkUserId() {
 
                 attkUserId_ = 0;
@@ -10187,29 +8361,12 @@ public final class GameMsgProtocol {
 
             private int targetUserId_;
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 2;</code>
-             *
-             * @return The targetUserId.
-             */
+            
             public int getTargetUserId() {
                 return targetUserId_;
             }
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 2;</code>
-             *
-             * @param value The targetUserId to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setTargetUserId(int value) {
 
                 targetUserId_ = value;
@@ -10217,15 +8374,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 2;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearTargetUserId() {
 
                 targetUserId_ = 0;
@@ -10291,36 +8440,14 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserSubtractHpResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 目标用户 Id
-         * </pre>
-         *
-         * <code>uint32 targetUserId = 1;</code>
-         *
-         * @return The targetUserId.
-         */
+        
         int getTargetUserId();
 
-        /**
-         * <pre>
-         * 减血量
-         * </pre>
-         *
-         * <code>uint32 subtractHp = 2;</code>
-         *
-         * @return The subtractHp.
-         */
+        
         int getSubtractHp();
     }
 
-    /**
-     * <pre>
-     * 用户减血结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserSubtractHpResult}
-     */
+    
     public static final class UserSubtractHpResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserSubtractHpResult)
@@ -10412,15 +8539,7 @@ public final class GameMsgProtocol {
         public static final int TARGETUSERID_FIELD_NUMBER = 1;
         private int targetUserId_;
 
-        /**
-         * <pre>
-         * 目标用户 Id
-         * </pre>
-         *
-         * <code>uint32 targetUserId = 1;</code>
-         *
-         * @return The targetUserId.
-         */
+        
         public int getTargetUserId() {
             return targetUserId_;
         }
@@ -10428,15 +8547,7 @@ public final class GameMsgProtocol {
         public static final int SUBTRACTHP_FIELD_NUMBER = 2;
         private int subtractHp_;
 
-        /**
-         * <pre>
-         * 减血量
-         * </pre>
-         *
-         * <code>uint32 subtractHp = 2;</code>
-         *
-         * @return The subtractHp.
-         */
+        
         public int getSubtractHp() {
             return subtractHp_;
         }
@@ -10625,13 +8736,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 用户减血结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserSubtractHpResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserSubtractHpResult)
@@ -10793,29 +8898,12 @@ public final class GameMsgProtocol {
 
             private int targetUserId_;
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 1;</code>
-             *
-             * @return The targetUserId.
-             */
+            
             public int getTargetUserId() {
                 return targetUserId_;
             }
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 1;</code>
-             *
-             * @param value The targetUserId to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setTargetUserId(int value) {
 
                 targetUserId_ = value;
@@ -10823,15 +8911,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearTargetUserId() {
 
                 targetUserId_ = 0;
@@ -10841,29 +8921,12 @@ public final class GameMsgProtocol {
 
             private int subtractHp_;
 
-            /**
-             * <pre>
-             * 减血量
-             * </pre>
-             *
-             * <code>uint32 subtractHp = 2;</code>
-             *
-             * @return The subtractHp.
-             */
+            
             public int getSubtractHp() {
                 return subtractHp_;
             }
 
-            /**
-             * <pre>
-             * 减血量
-             * </pre>
-             *
-             * <code>uint32 subtractHp = 2;</code>
-             *
-             * @param value The subtractHp to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setSubtractHp(int value) {
 
                 subtractHp_ = value;
@@ -10871,15 +8934,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 减血量
-             * </pre>
-             *
-             * <code>uint32 subtractHp = 2;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearSubtractHp() {
 
                 subtractHp_ = 0;
@@ -10945,25 +9000,11 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserDieResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 目标用户 Id
-         * </pre>
-         *
-         * <code>uint32 targetUserId = 1;</code>
-         *
-         * @return The targetUserId.
-         */
+        
         int getTargetUserId();
     }
 
-    /**
-     * <pre>
-     * 死亡结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserDieResult}
-     */
+    
     public static final class UserDieResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserDieResult)
@@ -11050,15 +9091,7 @@ public final class GameMsgProtocol {
         public static final int TARGETUSERID_FIELD_NUMBER = 1;
         private int targetUserId_;
 
-        /**
-         * <pre>
-         * 目标用户 Id
-         * </pre>
-         *
-         * <code>uint32 targetUserId = 1;</code>
-         *
-         * @return The targetUserId.
-         */
+        
         public int getTargetUserId() {
             return targetUserId_;
         }
@@ -11236,13 +9269,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 死亡结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserDieResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserDieResult)
@@ -11397,29 +9424,12 @@ public final class GameMsgProtocol {
 
             private int targetUserId_;
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 1;</code>
-             *
-             * @return The targetUserId.
-             */
+            
             public int getTargetUserId() {
                 return targetUserId_;
             }
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 1;</code>
-             *
-             * @param value The targetUserId to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setTargetUserId(int value) {
 
                 targetUserId_ = value;
@@ -11427,15 +9437,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 目标用户 Id
-             * </pre>
-             *
-             * <code>uint32 targetUserId = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearTargetUserId() {
 
                 targetUserId_ = 0;
@@ -11501,62 +9503,22 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserLoginCmd)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 1;</code>
-         *
-         * @return The userName.
-         */
+        
         java.lang.String getUserName();
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 1;</code>
-         *
-         * @return The bytes for userName.
-         */
+        
         com.google.protobuf.ByteString
         getUserNameBytes();
 
-        /**
-         * <pre>
-         * 用户密码
-         * </pre>
-         *
-         * <code>string password = 2;</code>
-         *
-         * @return The password.
-         */
+        
         java.lang.String getPassword();
 
-        /**
-         * <pre>
-         * 用户密码
-         * </pre>
-         *
-         * <code>string password = 2;</code>
-         *
-         * @return The bytes for password.
-         */
+        
         com.google.protobuf.ByteString
         getPasswordBytes();
     }
 
-    /**
-     * <pre>
-     * 用户登录
-     * /////////////////////////////////////////////////////////////////////
-     * 指令
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserLoginCmd}
-     */
+    
     public static final class UserLoginCmd extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserLoginCmd)
@@ -11652,15 +9614,7 @@ public final class GameMsgProtocol {
         public static final int USERNAME_FIELD_NUMBER = 1;
         private volatile java.lang.Object userName_;
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 1;</code>
-         *
-         * @return The userName.
-         */
+        
         public java.lang.String getUserName() {
             java.lang.Object ref = userName_;
             if (ref instanceof java.lang.String) {
@@ -11674,15 +9628,7 @@ public final class GameMsgProtocol {
             }
         }
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 1;</code>
-         *
-         * @return The bytes for userName.
-         */
+        
         public com.google.protobuf.ByteString
         getUserNameBytes() {
             java.lang.Object ref = userName_;
@@ -11700,15 +9646,7 @@ public final class GameMsgProtocol {
         public static final int PASSWORD_FIELD_NUMBER = 2;
         private volatile java.lang.Object password_;
 
-        /**
-         * <pre>
-         * 用户密码
-         * </pre>
-         *
-         * <code>string password = 2;</code>
-         *
-         * @return The password.
-         */
+        
         public java.lang.String getPassword() {
             java.lang.Object ref = password_;
             if (ref instanceof java.lang.String) {
@@ -11722,15 +9660,7 @@ public final class GameMsgProtocol {
             }
         }
 
-        /**
-         * <pre>
-         * 用户密码
-         * </pre>
-         *
-         * <code>string password = 2;</code>
-         *
-         * @return The bytes for password.
-         */
+        
         public com.google.protobuf.ByteString
         getPasswordBytes() {
             java.lang.Object ref = password_;
@@ -11927,15 +9857,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 用户登录
-         * /////////////////////////////////////////////////////////////////////
-         * 指令
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserLoginCmd}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserLoginCmd)
@@ -12098,15 +10020,7 @@ public final class GameMsgProtocol {
 
             private java.lang.Object userName_ = "";
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 1;</code>
-             *
-             * @return The userName.
-             */
+            
             public java.lang.String getUserName() {
                 java.lang.Object ref = userName_;
                 if (!(ref instanceof java.lang.String)) {
@@ -12120,15 +10034,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 1;</code>
-             *
-             * @return The bytes for userName.
-             */
+            
             public com.google.protobuf.ByteString
             getUserNameBytes() {
                 java.lang.Object ref = userName_;
@@ -12143,16 +10049,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 1;</code>
-             *
-             * @param value The userName to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setUserName(
                 java.lang.String value) {
                 if (value == null) {
@@ -12164,15 +10061,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearUserName() {
 
                 userName_ = getDefaultInstance().getUserName();
@@ -12180,16 +10069,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 1;</code>
-             *
-             * @param value The bytes for userName to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setUserNameBytes(
                 com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -12204,15 +10084,7 @@ public final class GameMsgProtocol {
 
             private java.lang.Object password_ = "";
 
-            /**
-             * <pre>
-             * 用户密码
-             * </pre>
-             *
-             * <code>string password = 2;</code>
-             *
-             * @return The password.
-             */
+            
             public java.lang.String getPassword() {
                 java.lang.Object ref = password_;
                 if (!(ref instanceof java.lang.String)) {
@@ -12226,15 +10098,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户密码
-             * </pre>
-             *
-             * <code>string password = 2;</code>
-             *
-             * @return The bytes for password.
-             */
+            
             public com.google.protobuf.ByteString
             getPasswordBytes() {
                 java.lang.Object ref = password_;
@@ -12249,16 +10113,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户密码
-             * </pre>
-             *
-             * <code>string password = 2;</code>
-             *
-             * @param value The password to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setPassword(
                 java.lang.String value) {
                 if (value == null) {
@@ -12270,15 +10125,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户密码
-             * </pre>
-             *
-             * <code>string password = 2;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearPassword() {
 
                 password_ = getDefaultInstance().getPassword();
@@ -12286,16 +10133,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户密码
-             * </pre>
-             *
-             * <code>string password = 2;</code>
-             *
-             * @param value The bytes for password to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setPasswordBytes(
                 com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -12366,72 +10204,25 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.UserLoginResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 用户 Id,
-         * 如果是 -1 则说明登录失败
-         * </pre>
-         *
-         * <code>uint32 userId = 1;</code>
-         *
-         * @return The userId.
-         */
+        
         int getUserId();
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 2;</code>
-         *
-         * @return The userName.
-         */
+        
         java.lang.String getUserName();
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 2;</code>
-         *
-         * @return The bytes for userName.
-         */
+        
         com.google.protobuf.ByteString
         getUserNameBytes();
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 3;</code>
-         *
-         * @return The heroAvatar.
-         */
+        
         java.lang.String getHeroAvatar();
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 3;</code>
-         *
-         * @return The bytes for heroAvatar.
-         */
+        
         com.google.protobuf.ByteString
         getHeroAvatarBytes();
     }
 
-    /**
-     * <pre>
-     * 结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.UserLoginResult}
-     */
+    
     public static final class UserLoginResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.UserLoginResult)
@@ -12532,16 +10323,7 @@ public final class GameMsgProtocol {
         public static final int USERID_FIELD_NUMBER = 1;
         private int userId_;
 
-        /**
-         * <pre>
-         * 用户 Id,
-         * 如果是 -1 则说明登录失败
-         * </pre>
-         *
-         * <code>uint32 userId = 1;</code>
-         *
-         * @return The userId.
-         */
+        
         public int getUserId() {
             return userId_;
         }
@@ -12549,15 +10331,7 @@ public final class GameMsgProtocol {
         public static final int USERNAME_FIELD_NUMBER = 2;
         private volatile java.lang.Object userName_;
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 2;</code>
-         *
-         * @return The userName.
-         */
+        
         public java.lang.String getUserName() {
             java.lang.Object ref = userName_;
             if (ref instanceof java.lang.String) {
@@ -12571,15 +10345,7 @@ public final class GameMsgProtocol {
             }
         }
 
-        /**
-         * <pre>
-         * 用户名称
-         * </pre>
-         *
-         * <code>string userName = 2;</code>
-         *
-         * @return The bytes for userName.
-         */
+        
         public com.google.protobuf.ByteString
         getUserNameBytes() {
             java.lang.Object ref = userName_;
@@ -12597,15 +10363,7 @@ public final class GameMsgProtocol {
         public static final int HEROAVATAR_FIELD_NUMBER = 3;
         private volatile java.lang.Object heroAvatar_;
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 3;</code>
-         *
-         * @return The heroAvatar.
-         */
+        
         public java.lang.String getHeroAvatar() {
             java.lang.Object ref = heroAvatar_;
             if (ref instanceof java.lang.String) {
@@ -12619,15 +10377,7 @@ public final class GameMsgProtocol {
             }
         }
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 3;</code>
-         *
-         * @return The bytes for heroAvatar.
-         */
+        
         public com.google.protobuf.ByteString
         getHeroAvatarBytes() {
             java.lang.Object ref = heroAvatar_;
@@ -12835,13 +10585,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.UserLoginResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.UserLoginResult)
@@ -13011,31 +10755,12 @@ public final class GameMsgProtocol {
 
             private int userId_;
 
-            /**
-             * <pre>
-             * 用户 Id,
-             * 如果是 -1 则说明登录失败
-             * </pre>
-             *
-             * <code>uint32 userId = 1;</code>
-             *
-             * @return The userId.
-             */
+            
             public int getUserId() {
                 return userId_;
             }
 
-            /**
-             * <pre>
-             * 用户 Id,
-             * 如果是 -1 则说明登录失败
-             * </pre>
-             *
-             * <code>uint32 userId = 1;</code>
-             *
-             * @param value The userId to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setUserId(int value) {
 
                 userId_ = value;
@@ -13043,16 +10768,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户 Id,
-             * 如果是 -1 则说明登录失败
-             * </pre>
-             *
-             * <code>uint32 userId = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearUserId() {
 
                 userId_ = 0;
@@ -13062,15 +10778,7 @@ public final class GameMsgProtocol {
 
             private java.lang.Object userName_ = "";
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @return The userName.
-             */
+            
             public java.lang.String getUserName() {
                 java.lang.Object ref = userName_;
                 if (!(ref instanceof java.lang.String)) {
@@ -13084,15 +10792,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @return The bytes for userName.
-             */
+            
             public com.google.protobuf.ByteString
             getUserNameBytes() {
                 java.lang.Object ref = userName_;
@@ -13107,16 +10807,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @param value The userName to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setUserName(
                 java.lang.String value) {
                 if (value == null) {
@@ -13128,15 +10819,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearUserName() {
 
                 userName_ = getDefaultInstance().getUserName();
@@ -13144,16 +10827,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 2;</code>
-             *
-             * @param value The bytes for userName to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setUserNameBytes(
                 com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -13168,15 +10842,7 @@ public final class GameMsgProtocol {
 
             private java.lang.Object heroAvatar_ = "";
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @return The heroAvatar.
-             */
+            
             public java.lang.String getHeroAvatar() {
                 java.lang.Object ref = heroAvatar_;
                 if (!(ref instanceof java.lang.String)) {
@@ -13190,15 +10856,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @return The bytes for heroAvatar.
-             */
+            
             public com.google.protobuf.ByteString
             getHeroAvatarBytes() {
                 java.lang.Object ref = heroAvatar_;
@@ -13213,16 +10871,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @param value The heroAvatar to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setHeroAvatar(
                 java.lang.String value) {
                 if (value == null) {
@@ -13234,15 +10883,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearHeroAvatar() {
 
                 heroAvatar_ = getDefaultInstance().getHeroAvatar();
@@ -13250,16 +10891,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 3;</code>
-             *
-             * @param value The bytes for heroAvatar to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setHeroAvatarBytes(
                 com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -13330,40 +10962,15 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.SelectHeroCmd)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 1;</code>
-         *
-         * @return The heroAvatar.
-         */
+        
         java.lang.String getHeroAvatar();
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 1;</code>
-         *
-         * @return The bytes for heroAvatar.
-         */
+        
         com.google.protobuf.ByteString
         getHeroAvatarBytes();
     }
 
-    /**
-     * <pre>
-     *
-     * 选择英雄
-     * /////////////////////////////////////////////////////////////////////
-     * 指令
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.SelectHeroCmd}
-     */
+    
     public static final class SelectHeroCmd extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.SelectHeroCmd)
@@ -13452,15 +11059,7 @@ public final class GameMsgProtocol {
         public static final int HEROAVATAR_FIELD_NUMBER = 1;
         private volatile java.lang.Object heroAvatar_;
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 1;</code>
-         *
-         * @return The heroAvatar.
-         */
+        
         public java.lang.String getHeroAvatar() {
             java.lang.Object ref = heroAvatar_;
             if (ref instanceof java.lang.String) {
@@ -13474,15 +11073,7 @@ public final class GameMsgProtocol {
             }
         }
 
-        /**
-         * <pre>
-         * 英雄形象
-         * </pre>
-         *
-         * <code>string heroAvatar = 1;</code>
-         *
-         * @return The bytes for heroAvatar.
-         */
+        
         public com.google.protobuf.ByteString
         getHeroAvatarBytes() {
             java.lang.Object ref = heroAvatar_;
@@ -13669,16 +11260,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         *
-         * 选择英雄
-         * /////////////////////////////////////////////////////////////////////
-         * 指令
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.SelectHeroCmd}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.SelectHeroCmd)
@@ -13834,15 +11416,7 @@ public final class GameMsgProtocol {
 
             private java.lang.Object heroAvatar_ = "";
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 1;</code>
-             *
-             * @return The heroAvatar.
-             */
+            
             public java.lang.String getHeroAvatar() {
                 java.lang.Object ref = heroAvatar_;
                 if (!(ref instanceof java.lang.String)) {
@@ -13856,15 +11430,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 1;</code>
-             *
-             * @return The bytes for heroAvatar.
-             */
+            
             public com.google.protobuf.ByteString
             getHeroAvatarBytes() {
                 java.lang.Object ref = heroAvatar_;
@@ -13879,16 +11445,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 1;</code>
-             *
-             * @param value The heroAvatar to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setHeroAvatar(
                 java.lang.String value) {
                 if (value == null) {
@@ -13900,15 +11457,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearHeroAvatar() {
 
                 heroAvatar_ = getDefaultInstance().getHeroAvatar();
@@ -13916,16 +11465,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 1;</code>
-             *
-             * @param value The bytes for heroAvatar to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setHeroAvatarBytes(
                 com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -13996,39 +11536,15 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.SelectHeroResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 英雄形象,
-         * 如果是空字符串则说明失败
-         * </pre>
-         *
-         * <code>string heroAvatar = 1;</code>
-         *
-         * @return The heroAvatar.
-         */
+        
         java.lang.String getHeroAvatar();
 
-        /**
-         * <pre>
-         * 英雄形象,
-         * 如果是空字符串则说明失败
-         * </pre>
-         *
-         * <code>string heroAvatar = 1;</code>
-         *
-         * @return The bytes for heroAvatar.
-         */
+        
         com.google.protobuf.ByteString
         getHeroAvatarBytes();
     }
 
-    /**
-     * <pre>
-     * 结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.SelectHeroResult}
-     */
+    
     public static final class SelectHeroResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.SelectHeroResult)
@@ -14117,16 +11633,7 @@ public final class GameMsgProtocol {
         public static final int HEROAVATAR_FIELD_NUMBER = 1;
         private volatile java.lang.Object heroAvatar_;
 
-        /**
-         * <pre>
-         * 英雄形象,
-         * 如果是空字符串则说明失败
-         * </pre>
-         *
-         * <code>string heroAvatar = 1;</code>
-         *
-         * @return The heroAvatar.
-         */
+        
         public java.lang.String getHeroAvatar() {
             java.lang.Object ref = heroAvatar_;
             if (ref instanceof java.lang.String) {
@@ -14140,16 +11647,7 @@ public final class GameMsgProtocol {
             }
         }
 
-        /**
-         * <pre>
-         * 英雄形象,
-         * 如果是空字符串则说明失败
-         * </pre>
-         *
-         * <code>string heroAvatar = 1;</code>
-         *
-         * @return The bytes for heroAvatar.
-         */
+        
         public com.google.protobuf.ByteString
         getHeroAvatarBytes() {
             java.lang.Object ref = heroAvatar_;
@@ -14336,13 +11834,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.SelectHeroResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.SelectHeroResult)
@@ -14499,16 +11991,7 @@ public final class GameMsgProtocol {
 
             private java.lang.Object heroAvatar_ = "";
 
-            /**
-             * <pre>
-             * 英雄形象,
-             * 如果是空字符串则说明失败
-             * </pre>
-             *
-             * <code>string heroAvatar = 1;</code>
-             *
-             * @return The heroAvatar.
-             */
+            
             public java.lang.String getHeroAvatar() {
                 java.lang.Object ref = heroAvatar_;
                 if (!(ref instanceof java.lang.String)) {
@@ -14522,16 +12005,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 英雄形象,
-             * 如果是空字符串则说明失败
-             * </pre>
-             *
-             * <code>string heroAvatar = 1;</code>
-             *
-             * @return The bytes for heroAvatar.
-             */
+            
             public com.google.protobuf.ByteString
             getHeroAvatarBytes() {
                 java.lang.Object ref = heroAvatar_;
@@ -14546,17 +12020,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 英雄形象,
-             * 如果是空字符串则说明失败
-             * </pre>
-             *
-             * <code>string heroAvatar = 1;</code>
-             *
-             * @param value The heroAvatar to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setHeroAvatar(
                 java.lang.String value) {
                 if (value == null) {
@@ -14568,16 +12032,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 英雄形象,
-             * 如果是空字符串则说明失败
-             * </pre>
-             *
-             * <code>string heroAvatar = 1;</code>
-             *
-             * @return This builder for chaining.
-             */
+            
             public Builder clearHeroAvatar() {
 
                 heroAvatar_ = getDefaultInstance().getHeroAvatar();
@@ -14585,17 +12040,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 英雄形象,
-             * 如果是空字符串则说明失败
-             * </pre>
-             *
-             * <code>string heroAvatar = 1;</code>
-             *
-             * @param value The bytes for heroAvatar to set.
-             * @return This builder for chaining.
-             */
+            
             public Builder setHeroAvatarBytes(
                 com.google.protobuf.ByteString value) {
                 if (value == null) {
@@ -14667,15 +12112,7 @@ public final class GameMsgProtocol {
         com.google.protobuf.MessageOrBuilder {
     }
 
-    /**
-     * <pre>
-     * 获取排行榜
-     * /////////////////////////////////////////////////////////////////////
-     * 指令
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.GetRankCmd}
-     */
+    
     public static final class GetRankCmd extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.GetRankCmd)
@@ -14916,15 +12353,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 获取排行榜
-         * /////////////////////////////////////////////////////////////////////
-         * 指令
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.GetRankCmd}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.GetRankCmd)
@@ -15129,62 +12558,26 @@ public final class GameMsgProtocol {
         // @@protoc_insertion_point(interface_extends:msg.GetRankResult)
         com.google.protobuf.MessageOrBuilder {
 
-        /**
-         * <pre>
-         * 排名条目
-         * </pre>
-         *
-         * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-         */
+        
         java.util.List<org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem>
         getRankItemList();
 
-        /**
-         * <pre>
-         * 排名条目
-         * </pre>
-         *
-         * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-         */
+        
         org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem getRankItem(int index);
 
-        /**
-         * <pre>
-         * 排名条目
-         * </pre>
-         *
-         * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-         */
+        
         int getRankItemCount();
 
-        /**
-         * <pre>
-         * 排名条目
-         * </pre>
-         *
-         * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-         */
+        
         java.util.List<? extends org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItemOrBuilder>
         getRankItemOrBuilderList();
 
-        /**
-         * <pre>
-         * 排名条目
-         * </pre>
-         *
-         * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-         */
+        
         org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItemOrBuilder getRankItemOrBuilder(
             int index);
     }
 
-    /**
-     * <pre>
-     * 结果
-     * </pre>
-     * <p>
-     * Protobuf type {@code msg.GetRankResult}
-     */
+    
     public static final class GetRankResult extends
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:msg.GetRankResult)
@@ -15281,93 +12674,31 @@ public final class GameMsgProtocol {
             // @@protoc_insertion_point(interface_extends:msg.GetRankResult.RankItem)
             com.google.protobuf.MessageOrBuilder {
 
-            /**
-             * <pre>
-             * 排名 Id
-             * </pre>
-             *
-             * <code>uint32 rankId = 1;</code>
-             *
-             * @return The rankId.
-             */
+            
             int getRankId();
 
-            /**
-             * <pre>
-             * 用户 Id
-             * </pre>
-             *
-             * <code>uint32 userId = 2;</code>
-             *
-             * @return The userId.
-             */
+            
             int getUserId();
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 3;</code>
-             *
-             * @return The userName.
-             */
+            
             java.lang.String getUserName();
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 3;</code>
-             *
-             * @return The bytes for userName.
-             */
+            
             com.google.protobuf.ByteString
             getUserNameBytes();
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 4;</code>
-             *
-             * @return The heroAvatar.
-             */
+            
             java.lang.String getHeroAvatar();
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 4;</code>
-             *
-             * @return The bytes for heroAvatar.
-             */
+            
             com.google.protobuf.ByteString
             getHeroAvatarBytes();
 
-            /**
-             * <pre>
-             * 胜利次数
-             * </pre>
-             *
-             * <code>uint32 win = 5;</code>
-             *
-             * @return The win.
-             */
+            
             int getWin();
         }
 
-        /**
-         * <pre>
-         * 用户信息
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.GetRankResult.RankItem}
-         */
+        
         public static final class RankItem extends
             com.google.protobuf.GeneratedMessageV3 implements
             // @@protoc_insertion_point(message_implements:msg.GetRankResult.RankItem)
@@ -15478,15 +12809,7 @@ public final class GameMsgProtocol {
             public static final int RANKID_FIELD_NUMBER = 1;
             private int rankId_;
 
-            /**
-             * <pre>
-             * 排名 Id
-             * </pre>
-             *
-             * <code>uint32 rankId = 1;</code>
-             *
-             * @return The rankId.
-             */
+            
             public int getRankId() {
                 return rankId_;
             }
@@ -15494,15 +12817,7 @@ public final class GameMsgProtocol {
             public static final int USERID_FIELD_NUMBER = 2;
             private int userId_;
 
-            /**
-             * <pre>
-             * 用户 Id
-             * </pre>
-             *
-             * <code>uint32 userId = 2;</code>
-             *
-             * @return The userId.
-             */
+            
             public int getUserId() {
                 return userId_;
             }
@@ -15510,15 +12825,7 @@ public final class GameMsgProtocol {
             public static final int USERNAME_FIELD_NUMBER = 3;
             private volatile java.lang.Object userName_;
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 3;</code>
-             *
-             * @return The userName.
-             */
+            
             public java.lang.String getUserName() {
                 java.lang.Object ref = userName_;
                 if (ref instanceof java.lang.String) {
@@ -15532,15 +12839,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 用户名称
-             * </pre>
-             *
-             * <code>string userName = 3;</code>
-             *
-             * @return The bytes for userName.
-             */
+            
             public com.google.protobuf.ByteString
             getUserNameBytes() {
                 java.lang.Object ref = userName_;
@@ -15558,15 +12857,7 @@ public final class GameMsgProtocol {
             public static final int HEROAVATAR_FIELD_NUMBER = 4;
             private volatile java.lang.Object heroAvatar_;
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 4;</code>
-             *
-             * @return The heroAvatar.
-             */
+            
             public java.lang.String getHeroAvatar() {
                 java.lang.Object ref = heroAvatar_;
                 if (ref instanceof java.lang.String) {
@@ -15580,15 +12871,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 英雄形象
-             * </pre>
-             *
-             * <code>string heroAvatar = 4;</code>
-             *
-             * @return The bytes for heroAvatar.
-             */
+            
             public com.google.protobuf.ByteString
             getHeroAvatarBytes() {
                 java.lang.Object ref = heroAvatar_;
@@ -15606,15 +12889,7 @@ public final class GameMsgProtocol {
             public static final int WIN_FIELD_NUMBER = 5;
             private int win_;
 
-            /**
-             * <pre>
-             * 胜利次数
-             * </pre>
-             *
-             * <code>uint32 win = 5;</code>
-             *
-             * @return The win.
-             */
+            
             public int getWin() {
                 return win_;
             }
@@ -15834,13 +13109,7 @@ public final class GameMsgProtocol {
                 return builder;
             }
 
-            /**
-             * <pre>
-             * 用户信息
-             * </pre>
-             * <p>
-             * Protobuf type {@code msg.GetRankResult.RankItem}
-             */
+            
             public static final class Builder extends
                 com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
                 // @@protoc_insertion_point(builder_implements:msg.GetRankResult.RankItem)
@@ -16022,29 +13291,12 @@ public final class GameMsgProtocol {
 
                 private int rankId_;
 
-                /**
-                 * <pre>
-                 * 排名 Id
-                 * </pre>
-                 *
-                 * <code>uint32 rankId = 1;</code>
-                 *
-                 * @return The rankId.
-                 */
+                
                 public int getRankId() {
                     return rankId_;
                 }
 
-                /**
-                 * <pre>
-                 * 排名 Id
-                 * </pre>
-                 *
-                 * <code>uint32 rankId = 1;</code>
-                 *
-                 * @param value The rankId to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setRankId(int value) {
 
                     rankId_ = value;
@@ -16052,15 +13304,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 排名 Id
-                 * </pre>
-                 *
-                 * <code>uint32 rankId = 1;</code>
-                 *
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder clearRankId() {
 
                     rankId_ = 0;
@@ -16070,29 +13314,12 @@ public final class GameMsgProtocol {
 
                 private int userId_;
 
-                /**
-                 * <pre>
-                 * 用户 Id
-                 * </pre>
-                 *
-                 * <code>uint32 userId = 2;</code>
-                 *
-                 * @return The userId.
-                 */
+                
                 public int getUserId() {
                     return userId_;
                 }
 
-                /**
-                 * <pre>
-                 * 用户 Id
-                 * </pre>
-                 *
-                 * <code>uint32 userId = 2;</code>
-                 *
-                 * @param value The userId to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setUserId(int value) {
 
                     userId_ = value;
@@ -16100,15 +13327,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 用户 Id
-                 * </pre>
-                 *
-                 * <code>uint32 userId = 2;</code>
-                 *
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder clearUserId() {
 
                     userId_ = 0;
@@ -16118,15 +13337,7 @@ public final class GameMsgProtocol {
 
                 private java.lang.Object userName_ = "";
 
-                /**
-                 * <pre>
-                 * 用户名称
-                 * </pre>
-                 *
-                 * <code>string userName = 3;</code>
-                 *
-                 * @return The userName.
-                 */
+                
                 public java.lang.String getUserName() {
                     java.lang.Object ref = userName_;
                     if (!(ref instanceof java.lang.String)) {
@@ -16140,15 +13351,7 @@ public final class GameMsgProtocol {
                     }
                 }
 
-                /**
-                 * <pre>
-                 * 用户名称
-                 * </pre>
-                 *
-                 * <code>string userName = 3;</code>
-                 *
-                 * @return The bytes for userName.
-                 */
+                
                 public com.google.protobuf.ByteString
                 getUserNameBytes() {
                     java.lang.Object ref = userName_;
@@ -16163,16 +13366,7 @@ public final class GameMsgProtocol {
                     }
                 }
 
-                /**
-                 * <pre>
-                 * 用户名称
-                 * </pre>
-                 *
-                 * <code>string userName = 3;</code>
-                 *
-                 * @param value The userName to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setUserName(
                     java.lang.String value) {
                     if (value == null) {
@@ -16184,15 +13378,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 用户名称
-                 * </pre>
-                 *
-                 * <code>string userName = 3;</code>
-                 *
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder clearUserName() {
 
                     userName_ = getDefaultInstance().getUserName();
@@ -16200,16 +13386,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 用户名称
-                 * </pre>
-                 *
-                 * <code>string userName = 3;</code>
-                 *
-                 * @param value The bytes for userName to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setUserNameBytes(
                     com.google.protobuf.ByteString value) {
                     if (value == null) {
@@ -16224,15 +13401,7 @@ public final class GameMsgProtocol {
 
                 private java.lang.Object heroAvatar_ = "";
 
-                /**
-                 * <pre>
-                 * 英雄形象
-                 * </pre>
-                 *
-                 * <code>string heroAvatar = 4;</code>
-                 *
-                 * @return The heroAvatar.
-                 */
+                
                 public java.lang.String getHeroAvatar() {
                     java.lang.Object ref = heroAvatar_;
                     if (!(ref instanceof java.lang.String)) {
@@ -16246,15 +13415,7 @@ public final class GameMsgProtocol {
                     }
                 }
 
-                /**
-                 * <pre>
-                 * 英雄形象
-                 * </pre>
-                 *
-                 * <code>string heroAvatar = 4;</code>
-                 *
-                 * @return The bytes for heroAvatar.
-                 */
+                
                 public com.google.protobuf.ByteString
                 getHeroAvatarBytes() {
                     java.lang.Object ref = heroAvatar_;
@@ -16269,16 +13430,7 @@ public final class GameMsgProtocol {
                     }
                 }
 
-                /**
-                 * <pre>
-                 * 英雄形象
-                 * </pre>
-                 *
-                 * <code>string heroAvatar = 4;</code>
-                 *
-                 * @param value The heroAvatar to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setHeroAvatar(
                     java.lang.String value) {
                     if (value == null) {
@@ -16290,15 +13442,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 英雄形象
-                 * </pre>
-                 *
-                 * <code>string heroAvatar = 4;</code>
-                 *
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder clearHeroAvatar() {
 
                     heroAvatar_ = getDefaultInstance().getHeroAvatar();
@@ -16306,16 +13450,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 英雄形象
-                 * </pre>
-                 *
-                 * <code>string heroAvatar = 4;</code>
-                 *
-                 * @param value The bytes for heroAvatar to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setHeroAvatarBytes(
                     com.google.protobuf.ByteString value) {
                     if (value == null) {
@@ -16330,29 +13465,12 @@ public final class GameMsgProtocol {
 
                 private int win_;
 
-                /**
-                 * <pre>
-                 * 胜利次数
-                 * </pre>
-                 *
-                 * <code>uint32 win = 5;</code>
-                 *
-                 * @return The win.
-                 */
+                
                 public int getWin() {
                     return win_;
                 }
 
-                /**
-                 * <pre>
-                 * 胜利次数
-                 * </pre>
-                 *
-                 * <code>uint32 win = 5;</code>
-                 *
-                 * @param value The win to set.
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder setWin(int value) {
 
                     win_ = value;
@@ -16360,15 +13478,7 @@ public final class GameMsgProtocol {
                     return this;
                 }
 
-                /**
-                 * <pre>
-                 * 胜利次数
-                 * </pre>
-                 *
-                 * <code>uint32 win = 5;</code>
-                 *
-                 * @return This builder for chaining.
-                 */
+                
                 public Builder clearWin() {
 
                     win_ = 0;
@@ -16433,58 +13543,28 @@ public final class GameMsgProtocol {
         public static final int RANKITEM_FIELD_NUMBER = 1;
         private java.util.List<org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem> rankItem_;
 
-        /**
-         * <pre>
-         * 排名条目
-         * </pre>
-         *
-         * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-         */
+        
         public java.util.List<org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem> getRankItemList() {
             return rankItem_;
         }
 
-        /**
-         * <pre>
-         * 排名条目
-         * </pre>
-         *
-         * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-         */
+        
         public java.util.List<? extends org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItemOrBuilder>
         getRankItemOrBuilderList() {
             return rankItem_;
         }
 
-        /**
-         * <pre>
-         * 排名条目
-         * </pre>
-         *
-         * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-         */
+        
         public int getRankItemCount() {
             return rankItem_.size();
         }
 
-        /**
-         * <pre>
-         * 排名条目
-         * </pre>
-         *
-         * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-         */
+        
         public org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem getRankItem(int index) {
             return rankItem_.get(index);
         }
 
-        /**
-         * <pre>
-         * 排名条目
-         * </pre>
-         *
-         * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-         */
+        
         public org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItemOrBuilder getRankItemOrBuilder(
             int index) {
             return rankItem_.get(index);
@@ -16665,13 +13745,7 @@ public final class GameMsgProtocol {
             return builder;
         }
 
-        /**
-         * <pre>
-         * 结果
-         * </pre>
-         * <p>
-         * Protobuf type {@code msg.GetRankResult}
-         */
+        
         public static final class Builder extends
             com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
             // @@protoc_insertion_point(builder_implements:msg.GetRankResult)
@@ -16876,13 +13950,7 @@ public final class GameMsgProtocol {
             private com.google.protobuf.RepeatedFieldBuilderV3<
                 org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem, org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem.Builder, org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItemOrBuilder> rankItemBuilder_;
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public java.util.List<org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem> getRankItemList() {
                 if (rankItemBuilder_ == null) {
                     return java.util.Collections.unmodifiableList(rankItem_);
@@ -16891,13 +13959,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public int getRankItemCount() {
                 if (rankItemBuilder_ == null) {
                     return rankItem_.size();
@@ -16906,13 +13968,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem getRankItem(int index) {
                 if (rankItemBuilder_ == null) {
                     return rankItem_.get(index);
@@ -16921,13 +13977,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public Builder setRankItem(
                 int index, org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem value) {
                 if (rankItemBuilder_ == null) {
@@ -16943,13 +13993,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public Builder setRankItem(
                 int index, org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem.Builder builderForValue) {
                 if (rankItemBuilder_ == null) {
@@ -16962,13 +14006,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public Builder addRankItem(org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem value) {
                 if (rankItemBuilder_ == null) {
                     if (value == null) {
@@ -16983,13 +14021,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public Builder addRankItem(
                 int index, org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem value) {
                 if (rankItemBuilder_ == null) {
@@ -17005,13 +14037,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public Builder addRankItem(
                 org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem.Builder builderForValue) {
                 if (rankItemBuilder_ == null) {
@@ -17024,13 +14050,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public Builder addRankItem(
                 int index, org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem.Builder builderForValue) {
                 if (rankItemBuilder_ == null) {
@@ -17043,13 +14063,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public Builder addAllRankItem(
                 java.lang.Iterable<? extends org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem> values) {
                 if (rankItemBuilder_ == null) {
@@ -17063,13 +14077,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public Builder clearRankItem() {
                 if (rankItemBuilder_ == null) {
                     rankItem_ = java.util.Collections.emptyList();
@@ -17081,13 +14089,7 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public Builder removeRankItem(int index) {
                 if (rankItemBuilder_ == null) {
                     ensureRankItemIsMutable();
@@ -17099,25 +14101,13 @@ public final class GameMsgProtocol {
                 return this;
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem.Builder getRankItemBuilder(
                 int index) {
                 return getRankItemFieldBuilder().getBuilder(index);
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItemOrBuilder getRankItemOrBuilder(
                 int index) {
                 if (rankItemBuilder_ == null) {
@@ -17127,13 +14117,7 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public java.util.List<? extends org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItemOrBuilder>
             getRankItemOrBuilderList() {
                 if (rankItemBuilder_ != null) {
@@ -17143,38 +14127,20 @@ public final class GameMsgProtocol {
                 }
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem.Builder addRankItemBuilder() {
                 return getRankItemFieldBuilder().addBuilder(
                     org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem.getDefaultInstance());
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem.Builder addRankItemBuilder(
                 int index) {
                 return getRankItemFieldBuilder().addBuilder(
                     index, org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem.getDefaultInstance());
             }
 
-            /**
-             * <pre>
-             * 排名条目
-             * </pre>
-             *
-             * <code>repeated .msg.GetRankResult.RankItem rankItem = 1;</code>
-             */
+            
             public java.util.List<org.tinygame.herostory.msg.GameMsgProtocol.GetRankResult.RankItem.Builder>
             getRankItemBuilderList() {
                 return getRankItemFieldBuilder().getBuilderList();

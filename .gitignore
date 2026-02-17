@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+
+# Java / Maven
+**/target/
+*.class
+
+# Logs
+*.log
+nettygame/log/
+
+# Coverage
+**/jacoco.exec
+**/site/jacoco/
+
+# Build artifacts
+*.jar
+!nettygame/.mvn/wrapper/maven-wrapper.jar

@@ -8,27 +8,24 @@ import org.tinygame.herostory.model.UserManager;
 import org.tinygame.herostory.msg.GameMsgProtocol;
 
 /**
- * 用户移动到 ( 目标位置 )
+ * Handles movement commands.
  */
 public class UserMoveToCmdHandler implements ICmdHandler<GameMsgProtocol.UserMoveToCmd> {
+    private static final AttributeKey<Integer> USER_ID_KEY = AttributeKey.valueOf("userId");
+
     @Override
     public void handle(ChannelHandlerContext ctx, GameMsgProtocol.UserMoveToCmd cmd) {
-        if (null == ctx ||
-            null == cmd) {
+        if (ctx == null || cmd == null) {
             return;
         }
 
-        // 获取用户 Id
-        Integer userId = (Integer) ctx.channel().attr(AttributeKey.valueOf("userId")).get();
-
-        if (null == userId) {
+        Integer userId = ctx.channel().attr(USER_ID_KEY).get();
+        if (userId == null) {
             return;
         }
 
-        // 获取已有用户
         User existUser = UserManager.getByUserId(userId);
-
-        if (null == existUser) {
+        if (existUser == null) {
             return;
         }
 
@@ -40,16 +37,16 @@ public class UserMoveToCmdHandler implements ICmdHandler<GameMsgProtocol.UserMov
         existUser.moveState.toPosY = cmd.getMoveToPosY();
         existUser.moveState.startTime = nowTime;
 
-        GameMsgProtocol.UserMoveToResult.Builder resultBuilder = GameMsgProtocol.UserMoveToResult.newBuilder();
-        resultBuilder.setMoveUserId(userId);
-        resultBuilder.setMoveFromPosX(cmd.getMoveFromPosX());
-        resultBuilder.setMoveFromPosY(cmd.getMoveFromPosY());
-        resultBuilder.setMoveToPosX(cmd.getMoveToPosX());
-        resultBuilder.setMoveToPosY(cmd.getMoveToPosY());
-        resultBuilder.setMoveStartTime(nowTime);
+        GameMsgProtocol.UserMoveToResult result = GameMsgProtocol.UserMoveToResult
+            .newBuilder()
+            .setMoveUserId(userId)
+            .setMoveFromPosX(cmd.getMoveFromPosX())
+            .setMoveFromPosY(cmd.getMoveFromPosY())
+            .setMoveToPosX(cmd.getMoveToPosX())
+            .setMoveToPosY(cmd.getMoveToPosY())
+            .setMoveStartTime(nowTime)
+            .build();
 
-        // 构建结果并广播
-        GameMsgProtocol.UserMoveToResult newResult = resultBuilder.build();
-        Broadcaster.broadcast(newResult);
+        Broadcaster.broadcast(result);
     }
 }

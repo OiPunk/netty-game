@@ -8,33 +8,29 @@ import org.tinygame.herostory.model.UserManager;
 import org.tinygame.herostory.msg.GameMsgProtocol;
 
 /**
- * 用户登陆
+ * Handles login commands.
  */
 public class UserLoginCmdHandler implements ICmdHandler<GameMsgProtocol.UserLoginCmd> {
+    private static final AttributeKey<Integer> USER_ID_KEY = AttributeKey.valueOf("userId");
+
     @Override
     public void handle(ChannelHandlerContext ctx, GameMsgProtocol.UserLoginCmd cmd) {
-        if (null == ctx ||
-            null == cmd) {
+        if (ctx == null || cmd == null) {
             return;
         }
 
         String userName = cmd.getUserName();
         String password = cmd.getPassword();
 
-        if (null == userName ||
-            null == password) {
+        if (userName == null || password == null) {
             return;
         }
 
-        // 获取用户实体
-        LoginService.getInstance().userLogin(userName, password, (userEntity) -> {
-            GameMsgProtocol.UserLoginResult.Builder
-                resultBuilder = GameMsgProtocol.UserLoginResult.newBuilder();
+        LoginService.getInstance().userLogin(userName, password, userEntity -> {
+            GameMsgProtocol.UserLoginResult.Builder resultBuilder = GameMsgProtocol.UserLoginResult.newBuilder();
 
-            if (null == userEntity) {
-                resultBuilder.setUserId(-1);
-                resultBuilder.setUserName("");
-                resultBuilder.setHeroAvatar("");
+            if (userEntity == null) {
+                resultBuilder.setUserId(-1).setUserName("").setHeroAvatar("");
             } else {
                 User newUser = new User();
                 newUser.userId = userEntity.userId;
@@ -43,17 +39,15 @@ public class UserLoginCmdHandler implements ICmdHandler<GameMsgProtocol.UserLogi
                 newUser.currHp = 100;
                 UserManager.addUser(newUser);
 
-                // 将用户 Id 保存至 Session
-                ctx.channel().attr(AttributeKey.valueOf("userId")).set(newUser.userId);
+                ctx.channel().attr(USER_ID_KEY).set(newUser.userId);
 
-                resultBuilder.setUserId(userEntity.userId);
-                resultBuilder.setUserName(userEntity.userName);
-                resultBuilder.setHeroAvatar(userEntity.heroAvatar);
+                resultBuilder
+                    .setUserId(userEntity.userId)
+                    .setUserName(userEntity.userName)
+                    .setHeroAvatar(userEntity.heroAvatar);
             }
 
-            GameMsgProtocol.UserLoginResult newResult = resultBuilder.build();
-            ctx.writeAndFlush(newResult);
-
+            ctx.writeAndFlush(resultBuilder.build());
             return null;
         });
     }

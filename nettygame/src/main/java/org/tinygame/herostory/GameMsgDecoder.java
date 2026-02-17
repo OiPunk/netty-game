@@ -9,18 +9,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 自定义的消息解码器
+ * WebSocket binary frame decoder for game protocol messages.
  */
 public class GameMsgDecoder extends ChannelInboundHandlerAdapter {
-    /**
-     * 日志对象
-     */
-    static private final Logger LOGGER = LoggerFactory.getLogger(GameMsgDecoder.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameMsgDecoder.class);
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        if (null == ctx ||
-            null == msg) {
+        if (ctx == null || msg == null) {
             return;
         }
 
@@ -32,36 +28,27 @@ public class GameMsgDecoder extends ChannelInboundHandlerAdapter {
             BinaryWebSocketFrame inputFrame = (BinaryWebSocketFrame) msg;
             ByteBuf byteBuf = inputFrame.content();
 
-            byteBuf.readShort(); // 读取消息的长度
-            int msgCode = byteBuf.readShort(); // 读取消息编号
+            byteBuf.readShort();
+            int msgCode = byteBuf.readShort();
 
-            // 拿到消息体
             byte[] msgBody = new byte[byteBuf.readableBytes()];
             byteBuf.readBytes(msgBody);
 
-            // 获取消息构建器
             Message.Builder msgBuilder = GameMsgRecognizer.getMsgBuilderByMsgCode(msgCode);
-
-            if (null == msgBuilder) {
-                LOGGER.error(
-                    "未找到消息构建器, msgCode = {}",
-                    msgCode
-                );
+            if (msgBuilder == null) {
+                LOGGER.error("No message builder found for msgCode={}", msgCode);
                 return;
             }
 
             msgBuilder.clear();
             msgBuilder.mergeFrom(msgBody);
-
-            // 构建消息实体
             Message cmd = msgBuilder.build();
 
-            if (null != cmd) {
+            if (cmd != null) {
                 ctx.fireChannelRead(cmd);
             }
         } catch (Exception ex) {
-            // 记录错误日志
-            LOGGER.error(ex.getMessage(), ex);
+            LOGGER.error("Failed to decode incoming message", ex);
         }
     }
 }
